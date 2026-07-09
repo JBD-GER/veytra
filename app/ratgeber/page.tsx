@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { RatgeberArchive } from "@/components/RatgeberArchive";
 import { StructuredData } from "@/components/StructuredData";
+import { publishedRatgeberSlugs } from "@/content/ratgeber-articles";
 import {
   featuredRatgeberPosts,
   ratgeberArticleStandard,
@@ -293,6 +294,7 @@ export default function GuidePage() {
         posts={ratgeberPostPlans}
         categories={ratgeberCategories}
         audienceOptions={ratgeberAudienceOptions}
+        publishedSlugs={publishedRatgeberSlugs}
       />
 
       <CTASection

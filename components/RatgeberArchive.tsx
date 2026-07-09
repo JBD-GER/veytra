@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import type { RatgeberCategory, RatgeberPostPlan } from "@/content/ratgeber";
@@ -8,6 +9,7 @@ type RatgeberArchiveProps = {
   posts: RatgeberPostPlan[];
   categories: RatgeberCategory[];
   audienceOptions: string[];
+  publishedSlugs: string[];
 };
 
 const dateTimeFormatter = new Intl.DateTimeFormat("de-DE", {
@@ -20,10 +22,11 @@ function formatPublishAt(value: string) {
   return dateTimeFormatter.format(new Date(value));
 }
 
-export function RatgeberArchive({ posts, categories, audienceOptions }: RatgeberArchiveProps) {
+export function RatgeberArchive({ posts, categories, audienceOptions, publishedSlugs }: RatgeberArchiveProps) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeAudience, setActiveAudience] = useState("all");
   const [query, setQuery] = useState("");
+  const publishedSlugSet = useMemo(() => new Set(publishedSlugs), [publishedSlugs]);
 
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -133,85 +136,96 @@ export function RatgeberArchive({ posts, categories, audienceOptions }: Ratgeber
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {filteredPosts.map((post, index) => (
-                <article
-                  id={post.slug}
-                  key={post.slug}
-                  data-reveal="slide"
-                  data-reveal-delay={`${Math.min(index, 8) * 35}ms`}
-                  className="overflow-hidden border border-neutral-200 bg-white transition hover:-translate-y-1 hover:border-neutral-950 hover:shadow-[0_20px_60px_rgba(23,23,23,0.08)]"
-                >
-                  <div
-                    className="relative min-h-36 bg-neutral-950 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, rgba(10,10,10,0.78), rgba(10,10,10,0.24)), url(${post.coverImage})`
-                    }}
+                <article id={post.slug} key={post.slug} data-reveal="slide" data-reveal-delay={`${Math.min(index, 8) * 35}ms`}>
+                  <div className="overflow-hidden border border-neutral-200 bg-white transition hover:-translate-y-1 hover:border-neutral-950 hover:shadow-[0_20px_60px_rgba(23,23,23,0.08)]">
+                    <div
+                      className="relative min-h-36 bg-neutral-950 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `linear-gradient(135deg, rgba(10,10,10,0.78), rgba(10,10,10,0.24)), url(${post.coverImage})`
+                      }}
                   >
-                    <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-3">
-                      <span className="border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
-                        {post.categoryLabel}
-                      </span>
-                      <span className="border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
-                        {post.readingTime}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-5 md:p-6">
-                    <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-neutral-500">
-                      <time dateTime={post.publishAt}>{formatPublishAt(post.publishAt)} Uhr</time>
-                      <span aria-hidden="true">/</span>
-                      <span>{post.wordCountTarget.toLocaleString("de-DE")} Wörter</span>
-                    </div>
-
-                    <h3 className="mt-4 text-xl font-semibold leading-tight text-neutral-950">
-                      {post.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-7 text-neutral-600">{post.summary}</p>
-
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      <span className="border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
-                        {post.focusKeyword}
-                      </span>
-                      <span className="border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
-                        {post.audience}
-                      </span>
-                    </div>
-
-                    <details className="mt-5 border-t border-neutral-200 pt-4">
-                      <summary className="cursor-pointer text-sm font-semibold text-neutral-950">
-                        SEO- und Bildplanung
-                      </summary>
-                      <div className="mt-4 grid gap-4 text-sm leading-7 text-neutral-600">
-                        <div>
-                          <p className="font-semibold text-neutral-950">Meta Title</p>
-                          <p>{post.metaTitle}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-neutral-950">Meta Description</p>
-                          <p>{post.metaDescription}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-neutral-950">Hero-Bildprompt</p>
-                          <p>{post.heroImagePrompt}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-neutral-950">Chronologische Struktur</p>
-                          <ol className="mt-2 grid gap-2">
-                            {post.outline.slice(0, 4).map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ol>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-neutral-950">Zwischen-Grafiken</p>
-                          <ul className="mt-2 grid gap-2">
-                            {post.inlineGraphicPrompts.map((prompt) => (
-                              <li key={prompt}>{prompt}</li>
-                            ))}
-                          </ul>
-                        </div>
+                      <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-3">
+                        <span className="border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+                          {post.categoryLabel}
+                        </span>
+                        <span className="border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+                          {post.readingTime}
+                        </span>
                       </div>
-                    </details>
+                    </div>
+
+                    <div className="p-5 md:p-6">
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-neutral-500">
+                        <time dateTime={post.publishAt}>{formatPublishAt(post.publishAt)} Uhr</time>
+                        <span aria-hidden="true">/</span>
+                        <span>{post.wordCountTarget.toLocaleString("de-DE")} Wörter</span>
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-semibold leading-tight text-neutral-950">
+                        {publishedSlugSet.has(post.slug) ? (
+                          <Link href={`/ratgeber/${post.slug}`} className="transition hover:text-neutral-600">
+                            {post.title}
+                          </Link>
+                        ) : (
+                          post.title
+                        )}
+                      </h3>
+                      <p className="mt-4 text-sm leading-7 text-neutral-600">{post.summary}</p>
+
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        <span className="border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
+                          {post.focusKeyword}
+                        </span>
+                        <span className="border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700">
+                          {post.audience}
+                        </span>
+                      </div>
+
+                      {publishedSlugSet.has(post.slug) ? (
+                        <Link
+                          href={`/ratgeber/${post.slug}`}
+                          className="mt-5 inline-flex min-h-10 items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-4 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
+                        >
+                          Artikel lesen
+                        </Link>
+                      ) : null}
+
+                      <details className="mt-5 border-t border-neutral-200 pt-4">
+                        <summary className="cursor-pointer text-sm font-semibold text-neutral-950">
+                          SEO- und Bildplanung
+                        </summary>
+                        <div className="mt-4 grid gap-4 text-sm leading-7 text-neutral-600">
+                          <div>
+                            <p className="font-semibold text-neutral-950">Meta Title</p>
+                            <p>{post.metaTitle}</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-neutral-950">Meta Description</p>
+                            <p>{post.metaDescription}</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-neutral-950">Hero-Bildprompt</p>
+                            <p>{post.heroImagePrompt}</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-neutral-950">Chronologische Struktur</p>
+                            <ol className="mt-2 grid gap-2">
+                              {post.outline.slice(0, 4).map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ol>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-neutral-950">Zwischen-Grafiken</p>
+                            <ul className="mt-2 grid gap-2">
+                              {post.inlineGraphicPrompts.map((prompt) => (
+                                <li key={prompt}>{prompt}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -228,4 +242,3 @@ export function RatgeberArchive({ posts, categories, audienceOptions }: Ratgeber
     </section>
   );
 }
-
