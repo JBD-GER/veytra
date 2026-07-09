@@ -121,7 +121,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Grundlagen, Modelle und Entscheidungslogik für Gründer, Unternehmen und Teams, die mit einem Venture Studio bauen wollen.",
     intent: "Definition, Vergleich, Entscheidung",
-    coverImage: "/images/studio-workbench.png",
+    coverImage: "/images/ratgeber/category-venture-studio.jpg",
     coverAlt: "Veytra Studio Workbench als visuelle Grundlage für Venture Studio Themen"
   },
   {
@@ -131,7 +131,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "AI-native Produkte, Agenten, Datenvorteile und praktische MVP-Entwicklung mit künstlicher Intelligenz.",
     intent: "AI Use Cases, Produktstrategie, Umsetzung",
-    coverImage: "/images/ai-workbench.png",
+    coverImage: "/images/ratgeber/category-ai-venture-building.jpg",
     coverAlt: "AI Workbench mit Produkt- und Datenartefakten"
   },
   {
@@ -141,7 +141,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Von Problemhypothese über Interviews und Smoke Tests bis zum belastbaren MVP-Scope.",
     intent: "Validieren, de-risken, priorisieren",
-    coverImage: "/images/launch-artifacts.png",
+    coverImage: "/images/ratgeber/category-mvp-validierung.jpg",
     coverAlt: "Launch-Artefakte für MVP-Validierung und Markttests"
   },
   {
@@ -151,7 +151,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Neue Geschäftsmodelle, Spin-outs und AI-Produkte für Unternehmen außerhalb klassischer Linienorganisation.",
     intent: "Corporate Innovation, Governance, Spin-out",
-    coverImage: "/images/studio-workbench.png",
+    coverImage: "/images/ratgeber/category-corporate-venture-building.jpg",
     coverAlt: "Strategischer Studio-Arbeitsplatz für Corporate Venture Building"
   },
   {
@@ -161,7 +161,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Frühe Nachfrage, ICP, Sales Motion, Founder-led Sales und Launch-Systeme für neue Ventures.",
     intent: "Kundengewinnung, Positionierung, Launch",
-    coverImage: "/images/launch-artifacts.png",
+    coverImage: "/images/ratgeber/category-go-to-market-sales.jpg",
     coverAlt: "Launch- und Go-to-Market-Artefakte auf einem Arbeitstisch"
   },
   {
@@ -171,7 +171,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Vertical SaaS, Plattformen, Marketplaces, Produktized Services und AI-native Geschäftsmodelle.",
     intent: "Geschäftsmodell, Produktlogik, Skalierung",
-    coverImage: "/case-studies/huntfields-showcase.png",
+    coverImage: "/images/ratgeber/category-saas-geschaeftsmodelle.jpg",
     coverAlt: "Digitale Plattform als Beispiel für ein skalierbares Geschäftsmodell"
   },
   {
@@ -181,7 +181,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Pitch, Datenraum, Traction, Investor-Fit und Kapitalfähigkeit von Pre-Seed bis Seed.",
     intent: "Finanzierungsfähigkeit, Investor-Kommunikation",
-    coverImage: "/images/investor-startup-team.jpg",
+    coverImage: "/images/ratgeber/category-fundraising-investor-readiness.jpg",
     coverAlt: "Startup-Team in Investorengespräch"
   },
   {
@@ -191,7 +191,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Preislogik, Pilotpreise, Umsatzmodelle, CAC, LTV und Studio-Deal-Strukturen.",
     intent: "Monetarisierung, Wirtschaftlichkeit, Deal Design",
-    coverImage: "/case-studies/pmslogic.png",
+    coverImage: "/images/ratgeber/category-pricing-unit-economics.jpg",
     coverAlt: "Dashboard-Ansicht als Symbol für Unit Economics und Pricing"
   },
   {
@@ -201,7 +201,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Operating Cadence, Teamrollen, Tooling, Analytics, Entscheidungen und wiederholbare Venture-Prozesse.",
     intent: "Betriebssystem, Team, Execution",
-    coverImage: "/images/studio-workbench.png",
+    coverImage: "/images/ratgeber/category-operations-studio-os.jpg",
     coverAlt: "Venture Studio Arbeitsumgebung mit operativen Artefakten"
   },
   {
@@ -211,7 +211,7 @@ export const ratgeberCategories: RatgeberCategory[] = [
     description:
       "Suchintention, Content Hubs, AI Search, programmatische SEO und Nachfrageaufbau für B2B-Ventures.",
     intent: "Suchnachfrage, Content-System, Conversion",
-    coverImage: "/case-studies/geogurus-showcase.png",
+    coverImage: "/images/ratgeber/category-seo-content-nachfrage.jpg",
     coverAlt: "Such- und Informationsarchitektur als SEO-Beispiel"
   }
 ];
@@ -1823,4 +1823,3 @@ export const featuredRatgeberPosts = ratgeberPostPlans.filter((post) => post.fea
 export const ratgeberAudienceOptions = Array.from(
   new Set(ratgeberPostPlans.flatMap((post) => post.audience.split(", ")))
 ).sort();
-

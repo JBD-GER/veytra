@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { CTASection } from "@/components/CTASection";
@@ -124,37 +125,39 @@ export default function GuidePage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-[1240px] px-5 py-16 md:px-8 md:py-24">
-          <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr] lg:items-start">
-            <div data-reveal="slide">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                Kategorien
-              </p>
-              <h2 className="mt-4 text-2xl font-semibold leading-tight text-neutral-950 md:text-4xl">
-                Die Themen folgen der echten Venture-Entscheidung.
-              </h2>
-              <p className="mt-5 text-base leading-8 text-neutral-600 md:text-lg">
-                Statt loser Blogideen ist der Ratgeber als Topical Map geplant: Grundlagen,
-                AI, Validierung, Corporate Build, GTM, SaaS, Fundraising, Pricing, Operations
-                und SEO greifen ineinander.
-              </p>
-            </div>
+          <div data-reveal="slide" className="max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+              Kategorien
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold leading-tight text-neutral-950 md:text-4xl">
+              Die Themen folgen der echten Venture-Entscheidung.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-neutral-600 md:text-lg">
+              Statt loser Blogideen ist der Ratgeber als Topical Map geplant: Grundlagen,
+              AI, Validierung, Corporate Build, GTM, SaaS, Fundraising, Pricing, Operations
+              und SEO greifen ineinander.
+            </p>
+          </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {ratgeberCategories.map((category, index) => (
-                <article
-                  key={category.id}
-                  data-reveal="slide"
-                  data-reveal-delay={`${index * 40}ms`}
-                  className="border border-neutral-200 bg-white p-5 transition hover:border-neutral-950"
-                >
-                  <div
-                    className="mb-5 h-28 bg-neutral-950 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, rgba(10,10,10,0.72), rgba(10,10,10,0.18)), url(${category.coverImage})`
-                    }}
-                    role="img"
-                    aria-label={category.coverAlt}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ratgeberCategories.map((category, index) => (
+              <article
+                key={category.id}
+                data-reveal="slide"
+                data-reveal-delay={`${index * 40}ms`}
+                className="overflow-hidden border border-neutral-200 bg-white transition hover:-translate-y-1 hover:border-neutral-950 hover:shadow-[0_20px_60px_rgba(23,23,23,0.08)]"
+              >
+                <div className="relative aspect-[16/9] bg-neutral-950">
+                  <Image
+                    src={category.coverImage}
+                    alt={category.coverAlt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
                   />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,0.05),rgba(10,10,10,0.38))]" />
+                </div>
+                <div className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-lg font-semibold leading-tight text-neutral-950">
                       {category.label}
@@ -167,9 +170,9 @@ export default function GuidePage() {
                   <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">
                     {category.intent}
                   </p>
-                </article>
-              ))}
-            </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
