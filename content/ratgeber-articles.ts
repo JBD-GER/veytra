@@ -34,6 +34,19 @@ export type RatgeberArticle = {
   relatedSlugs: string[];
 };
 
+export type RatgeberArticlePreview = {
+  slug: string;
+  title: string;
+  categoryId: RatgeberPostPlan["categoryId"];
+  categoryLabel: string;
+  publishAt: string;
+  readingTime: string;
+  summary: string;
+  focusKeyword: string;
+  coverImage: string;
+  imageAlt: string;
+};
+
 const planBySlug = new Map(ratgeberPostPlans.map((post) => [post.slug, post]));
 
 function getPlan(slug: string) {
@@ -453,7 +466,19 @@ export const ratgeberArticles: RatgeberArticle[] = [
 
 export const publishedRatgeberSlugs = ratgeberArticles.map((article) => article.slug);
 
+export const ratgeberArticlePreviews: RatgeberArticlePreview[] = ratgeberArticles.map((article) => ({
+  slug: article.slug,
+  title: article.plan.title,
+  categoryId: article.plan.categoryId,
+  categoryLabel: article.plan.categoryLabel,
+  publishAt: article.plan.publishAt,
+  readingTime: article.plan.readingTime,
+  summary: article.plan.summary,
+  focusKeyword: article.plan.focusKeyword,
+  coverImage: article.plan.coverImage,
+  imageAlt: article.plan.imageAlt
+}));
+
 export function getRatgeberArticle(slug: string) {
   return ratgeberArticles.find((article) => article.slug === slug);
 }
-

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { ratgeberCategories } from "@/content/ratgeber";
 import { publishedRatgeberSlugs } from "@/content/ratgeber-articles";
 import { getSiteUrl, sitePaths } from "@/lib/site";
 
@@ -20,5 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75
   }));
 
-  return [...staticPaths, ...articlePaths];
+  const categoryPaths = ratgeberCategories.map((category) => ({
+    url: `${baseUrl}/ratgeber/kategorie/${category.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65
+  }));
+
+  return [...staticPaths, ...categoryPaths, ...articlePaths];
 }
