@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Veytra</title>
+  <rect width="64" height="64" rx="14" fill="#0a0a0a" />
+  <path d="M14 14h11.2L32 40.8 38.8 14H50L37.7 50H26.3L14 14Z" fill="#f8fafc" />
+  <path d="M25.8 14h12.4L32 35.8 25.8 14Z" fill="#94a3b8" opacity=".72" />
+  <path d="M14 14h11.2L32 40.8 38.8 14H50" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" opacity=".22" />
+</svg>
