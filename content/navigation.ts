@@ -6,6 +6,7 @@ export type NavigationItem = {
 export const navigationItems: NavigationItem[] = [
   { label: "Venture Studio", href: "/venture-studio" },
   { label: "AI Venture Studio", href: "/ai-venture-studio" },
+  { label: "Inkubator Hannover", href: "/inkubator-hannover" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Studio OS", href: "/studio-os" },
   { label: "Prozess", href: "/prozess" },

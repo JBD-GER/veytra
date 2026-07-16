@@ -28,6 +28,7 @@ export const sitePaths = [
   "/",
   "/venture-studio",
   "/ai-venture-studio",
+  "/inkubator-hannover",
   "/leistungen",
   "/studio-os",
   "/prozess",

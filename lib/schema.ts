@@ -24,6 +24,7 @@ export function professionalServiceSchema() {
     serviceType: [
       "Venture Studio",
       "AI Venture Studio",
+      "Startup Inkubator Hannover",
       "Corporate Venture Building",
       "Company Building",
       "Venture Validation",

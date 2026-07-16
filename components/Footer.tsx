@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 const footerPageItems = [
   { label: "Venture Studio", href: "/venture-studio" },
   { label: "AI Venture Studio", href: "/ai-venture-studio" },
+  { label: "Inkubator Hannover", href: "/inkubator-hannover" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Studio OS", href: "/studio-os" },
   { label: "Prozess", href: "/prozess" },
