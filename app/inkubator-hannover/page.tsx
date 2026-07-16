@@ -13,9 +13,9 @@ import { absoluteUrl } from "@/lib/utils";
 const pagePath = "/inkubator-hannover";
 
 export const metadata: Metadata = createMetadata({
-  title: "Inkubator Hannover für Startups & neue Ventures",
+  title: "Hightech-Inkubator Hannover & Niedersachsen",
   description:
-    "Inkubator Hannover: Veytra validiert Geschäftsideen, baut MVPs und entwickelt Go-to-Market, Team und Kapitalpfad für Startups und Unternehmen.",
+    "Hightech-Inkubator für Hannover und Niedersachsen: Veytra validiert Geschäftsideen, baut MVPs und entwickelt Go-to-Market, Team und Kapitalpfad.",
   path: pagePath
 });
 
@@ -191,11 +191,11 @@ const hannoverFaqs: FAQItem[] = [
 const incubatorSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Inkubator Hannover",
+  name: "Hightech-Inkubator für Hannover und Niedersachsen",
   serviceType: "Startup Inkubator, Venture Building und Company Building",
   url: absoluteUrl(pagePath),
   description:
-    "Veytra unterstützt Gründer, Startups und Unternehmen aus Hannover bei Ideenvalidierung, MVP-Entwicklung, Go-to-Market und Company Build.",
+    "Veytra unterstützt Gründer, Startups und Unternehmen aus Hannover und Niedersachsen bei Ideenvalidierung, MVP-Entwicklung, Go-to-Market und Company Build.",
   provider: {
     "@type": "Organization",
     name: "Veytra",
@@ -231,50 +231,48 @@ const incubatorSchema = {
 
 function IncubatorVisual() {
   return (
-    <div className="relative overflow-hidden border border-white/12 bg-white/[0.04] p-4 md:p-7">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(255,255,255,0.09),transparent_34%)]" />
-      <div className="relative border-b border-white/10 pb-5">
-        <div className="flex items-start justify-between gap-6">
+    <div className="relative overflow-hidden border border-white/12 bg-white/[0.04] p-3 sm:p-5 md:p-7">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_4%,rgba(255,255,255,0.08),transparent_30%)]" />
+      <div className="relative border-b border-white/10 pb-4 sm:pb-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 md:text-xs">
-              Venture Incubation System
+              Veytra Incubator
             </p>
-            <h2 className="mt-3 text-xl font-semibold text-white md:text-3xl">Hannover → Market</h2>
+            <h2 className="mt-2 text-lg font-semibold text-white sm:mt-3 sm:text-xl md:text-3xl">
+              Von der Idee zum Venture.
+            </h2>
           </div>
-          <div className="text-right">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">Region</p>
-            <p className="mt-2 text-xs font-medium text-neutral-300">52.3759° N / 9.7320° E</p>
+          <div className="border-l border-white/15 pl-3 sm:text-right">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-neutral-500 sm:text-[10px]">
+              Region
+            </p>
+            <p className="mt-1 text-xs font-medium text-neutral-300 sm:mt-2">Hannover · Niedersachsen</p>
           </div>
         </div>
       </div>
 
-      <div className="relative mt-5 grid gap-3">
-        {incubatorStages.map((stage, index) => (
+      <div className="relative mt-3 grid gap-2 sm:mt-5 sm:gap-3">
+        {incubatorStages.map((stage) => (
           <div
             key={stage.title}
-            className="relative grid gap-2 overflow-hidden border border-white/10 bg-neutral-950/55 p-3 md:grid-cols-[52px_0.72fr_1.28fr] md:items-center md:gap-4 md:p-4"
+            className="grid grid-cols-[38px_1fr] gap-x-3 gap-y-1 border border-white/10 bg-neutral-950/55 p-3 sm:grid-cols-[42px_0.72fr_1.28fr] sm:items-center sm:gap-4 sm:p-4"
           >
-            <span className="text-xs font-semibold text-neutral-500">{stage.label}</span>
-            <strong className="text-sm font-semibold text-white md:text-base">{stage.title}</strong>
-            <span className="text-xs leading-5 text-neutral-400 md:text-sm md:leading-6">{stage.text}</span>
-            <span
-              aria-hidden="true"
-              className="absolute left-0 h-px bg-white/20"
-              style={{ width: `${18 + index * 16}%` }}
-            />
+            <span className="flex h-8 w-8 items-center justify-center border border-white/15 bg-white/[0.04] text-[10px] font-semibold text-neutral-400 sm:h-9 sm:w-9 sm:text-xs">
+              {stage.label}
+            </span>
+            <strong className="min-w-0 text-sm font-semibold leading-5 text-white sm:text-base">{stage.title}</strong>
+            <span className="col-start-2 min-w-0 text-xs leading-5 text-neutral-400 sm:col-auto sm:text-sm sm:leading-6">
+              {stage.text}
+            </span>
           </div>
         ))}
       </div>
 
-      <div className="relative mt-5 grid grid-cols-3 gap-2 text-center">
-        {[
-          ["01", "Idee"],
-          ["02", "Signal"],
-          ["03", "Venture"]
-        ].map(([value, label]) => (
-          <div key={label} className="border border-white/10 bg-white/[0.03] px-2 py-3">
-            <span className="block text-lg font-semibold text-white">{value}</span>
-            <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.17em] text-neutral-500">
+      <div className="relative mt-3 grid grid-cols-3 gap-1.5 sm:mt-5 sm:gap-2">
+        {["Markt", "Produkt", "Company"].map((label) => (
+          <div key={label} className="border border-white/10 bg-white/[0.03] px-1.5 py-2.5 text-center sm:px-2 sm:py-3">
+            <span className="block text-[8px] font-semibold uppercase tracking-[0.13em] text-neutral-400 sm:text-[10px] sm:tracking-[0.17em]">
               {label}
             </span>
           </div>
@@ -289,26 +287,28 @@ export default function IncubatorHannoverPage() {
     <>
       <StructuredData data={[incubatorSchema, faqSchema(hannoverFaqs, pagePath)]} />
 
-      <section className="border-b border-neutral-800 bg-neutral-950 text-white">
-        <div className="mx-auto grid max-w-[1440px] gap-9 px-5 py-14 md:px-8 md:py-24 lg:min-h-[calc(100vh-72px)] lg:grid-cols-[0.84fr_1fr] lg:items-center">
+      <section className="overflow-hidden border-b border-neutral-800 bg-neutral-950 text-white">
+        <div className="mx-auto grid max-w-[1440px] gap-9 px-4 py-12 sm:px-5 sm:py-16 md:px-8 md:py-24 lg:min-h-[calc(100vh-72px)] lg:grid-cols-[0.84fr_1fr] lg:items-center">
           <div data-reveal="slide" className="max-w-3xl">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500 md:mb-6">
+            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500 sm:text-xs sm:tracking-[0.22em] md:mb-6">
               Startup Inkubator für Hannover und die Region
             </p>
-            <h1 className="text-3xl font-semibold leading-[1.08] md:text-6xl">Inkubator Hannover</h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-300 md:mt-7 md:text-lg md:leading-9">
+            <h1 className="text-[2.15rem] font-semibold leading-[1.05] tracking-[-0.025em] sm:text-5xl md:text-6xl">
+              Hightech-Inkubator für Hannover und Niedersachsen
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-300 sm:mt-6 sm:leading-8 md:mt-7 md:text-lg md:leading-9">
               Veytra prüft Geschäftsideen, validiert Nachfrage, baut fokussierte MVPs und entwickelt den Weg zu ersten Kunden, eigenem Team und Finanzierung. Operativ, technologiegetrieben und mit klaren Entscheidungsgates.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-9">
               <Link
                 href="/kontakt"
-                className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200 sm:w-auto"
               >
                 Idee prüfen lassen
               </Link>
               <Link
                 href="/preise"
-                className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white/20 px-5 text-sm font-medium text-white transition hover:border-white"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-[6px] border border-white/20 px-5 text-sm font-medium text-white transition hover:border-white sm:w-auto"
               >
                 Modelle und Preise
               </Link>
@@ -320,8 +320,8 @@ export default function IncubatorHannoverPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-[1240px] gap-8 px-5 py-14 md:px-8 md:py-24 lg:grid-cols-[0.78fr_1.22fr]">
+      <section className="overflow-hidden bg-white">
+        <div className="mx-auto grid max-w-[1240px] gap-8 px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24 lg:grid-cols-[0.78fr_1.22fr]">
           <SectionIntro
             eyebrow="Definition"
             title="Ein Inkubator macht aus einer frühen Chance eine belastbare Venture-Entscheidung."
@@ -333,19 +333,19 @@ export default function IncubatorHannoverPage() {
                 key={item.title}
                 data-reveal="slide"
                 data-reveal-delay={`${index * 70}ms`}
-                className="border border-neutral-200 bg-white p-5 md:p-6"
+                className="border border-neutral-200 bg-white p-4 sm:p-5 md:p-6"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">{item.label}</p>
                 <h2 className="mt-5 text-xl font-semibold text-neutral-950">{item.title}</h2>
-                <p className="mt-4 text-base leading-8 text-neutral-600">{item.body}</p>
+                <p className="mt-4 text-base leading-7 text-neutral-600 sm:leading-8">{item.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-neutral-200 bg-neutral-50">
-        <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
+      <section className="overflow-hidden border-y border-neutral-200 bg-neutral-50">
+        <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24">
           <SectionIntro
             eyebrow="Inkubator-Leistungen"
             title="Was Veytra für neue Ventures in Hannover übernimmt."
@@ -357,7 +357,7 @@ export default function IncubatorHannoverPage() {
                 key={service.title}
                 data-reveal="slide"
                 data-reveal-delay={`${index * 55}ms`}
-                className="relative overflow-hidden border border-neutral-200 bg-white p-5 md:p-7"
+                className="relative overflow-hidden border border-neutral-200 bg-white p-4 sm:p-5 md:p-7"
               >
                 <div className="flex items-start justify-between gap-5">
                   <h3 className="text-lg font-semibold leading-tight text-neutral-950 md:text-xl">{service.title}</h3>
@@ -365,15 +365,15 @@ export default function IncubatorHannoverPage() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <p className="mt-5 text-base leading-8 text-neutral-600">{service.body}</p>
+                <p className="mt-4 text-base leading-7 text-neutral-600 sm:mt-5 sm:leading-8">{service.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-neutral-800 bg-neutral-950 text-white">
-        <div className="mx-auto grid max-w-[1240px] gap-8 px-5 py-14 md:gap-12 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">
+      <section className="overflow-hidden border-y border-neutral-800 bg-neutral-950 text-white">
+        <div className="mx-auto grid max-w-[1240px] gap-8 px-4 py-12 sm:px-5 sm:py-14 md:gap-12 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">
           <div data-reveal="slide" className="lg:sticky lg:top-28 lg:self-start">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
               Inkubator-Prozess
@@ -391,19 +391,19 @@ export default function IncubatorHannoverPage() {
                 key={step.title}
                 data-reveal="slide"
                 data-reveal-delay={`${index * 80}ms`}
-                className="border border-white/10 bg-white/[0.03] p-5 md:grid md:grid-cols-[116px_0.8fr_1.2fr] md:gap-7 md:p-6"
+                className="border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid lg:grid-cols-[116px_0.8fr_1.2fr] lg:gap-7 lg:p-6"
               >
                 <span className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">{step.label}</span>
-                <h3 className="mt-4 text-xl font-semibold leading-tight text-white md:mt-0 md:text-2xl">{step.title}</h3>
-                <p className="mt-5 text-base leading-8 text-neutral-300 md:mt-0">{step.body}</p>
+                <h3 className="mt-3 text-lg font-semibold leading-tight text-white sm:mt-4 sm:text-xl lg:mt-0 lg:text-2xl">{step.title}</h3>
+                <p className="mt-4 text-base leading-7 text-neutral-300 sm:mt-5 sm:leading-8 lg:mt-0">{step.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
+      <section className="overflow-hidden bg-white">
+        <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24">
           <SectionIntro
             eyebrow="Für wen"
             title="Der Inkubator passt zu drei Ausgangslagen."
@@ -416,11 +416,11 @@ export default function IncubatorHannoverPage() {
                 href={audience.href}
                 data-reveal="slide"
                 data-reveal-delay={`${index * 80}ms`}
-                className="group border border-neutral-200 bg-white p-5 transition hover:-translate-y-1 hover:border-neutral-950 hover:shadow-[0_20px_60px_rgba(23,23,23,0.08)] md:p-7"
+                className="group border border-neutral-200 bg-white p-4 transition hover:-translate-y-1 hover:border-neutral-950 hover:shadow-[0_20px_60px_rgba(23,23,23,0.08)] sm:p-5 md:p-7"
               >
                 <span className="text-sm font-semibold text-neutral-400">0{index + 1}</span>
                 <h3 className="mt-6 text-xl font-semibold text-neutral-950 md:text-2xl">{audience.title}</h3>
-                <p className="mt-5 text-base leading-8 text-neutral-600">{audience.body}</p>
+                <p className="mt-4 text-base leading-7 text-neutral-600 sm:mt-5 sm:leading-8">{audience.body}</p>
                 <span className="mt-7 inline-flex text-sm font-medium text-neutral-950 underline underline-offset-4">
                   {audience.linkLabel}
                 </span>
@@ -430,15 +430,15 @@ export default function IncubatorHannoverPage() {
         </div>
       </section>
 
-      <section className="border-y border-neutral-200 bg-neutral-50">
-        <div className="mx-auto grid max-w-[1240px] gap-9 px-5 py-14 md:gap-12 md:px-8 md:py-24 lg:grid-cols-[0.82fr_1.18fr]">
+      <section className="overflow-hidden border-y border-neutral-200 bg-neutral-50">
+        <div className="mx-auto grid max-w-[1240px] gap-9 px-4 py-12 sm:px-5 sm:py-14 md:gap-12 md:px-8 md:py-24 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <SectionIntro
               eyebrow="Standortvorteil"
               title="In Hannover starten. Für den Markt bauen."
               description="Hannover verbindet Unternehmen, technische Kompetenz und kurze Wege in einer wirtschaftlich vielfältigen Region. Für neue B2B-, SaaS- und AI-Ventures ist das ein guter Ausgangspunkt – sofern aus Zugang auch echte Validierung entsteht."
             />
-            <div className="mt-8 border-l-2 border-neutral-950 pl-5 text-base leading-8 text-neutral-600 md:mt-10 md:pl-7 md:text-lg md:leading-9">
+            <div className="mt-8 border-l-2 border-neutral-950 pl-4 text-base leading-7 text-neutral-600 sm:pl-5 sm:leading-8 md:mt-10 md:pl-7 md:text-lg md:leading-9">
               <p>
                 Veytra nutzt den regionalen Kontext nicht als Selbstzweck. Entscheidend ist, ob Branchenwissen, Kundenkontakte, Daten oder Prozesse in ein wiederholbares digitales Angebot übersetzt werden können.
               </p>
@@ -453,7 +453,7 @@ export default function IncubatorHannoverPage() {
                 key={title}
                 data-reveal="fade"
                 data-reveal-delay={`${index * 55}ms`}
-                className="border border-neutral-200 bg-white p-5"
+                className="border border-neutral-200 bg-white p-4 sm:p-5"
               >
                 <span className="text-xs font-semibold text-neutral-400">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 text-lg font-semibold text-neutral-950">{title}</h3>
@@ -464,20 +464,20 @@ export default function IncubatorHannoverPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-[1240px] gap-9 px-5 py-14 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">
+      <section className="overflow-hidden bg-white">
+        <div className="mx-auto grid max-w-[1240px] gap-9 px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">
           <SectionIntro
             eyebrow="Zusammenarbeit"
             title="Ein Einstieg, drei mögliche Build-Modelle."
             description="Jede Zusammenarbeit beginnt mit einem Venture Audit. Danach wird entschieden, ob ein Equity-, Hybrid- oder Corporate-Modell zum Risiko, Budget und Beitrag der Beteiligten passt."
           />
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-3">
             {[
               ["Equity", "Studio-Leistung gegen Beteiligung", "Für ausgewählte Founder-Cases mit starkem Fit und geteilter operativer Verantwortung."],
               ["Hybrid", "Build-Fee plus Beteiligung", "Für finanzierte Teams, die schneller bauen und gleichzeitig Equity schonen möchten."],
               ["Corporate", "Finanzierter Venture Build", "Für Unternehmen, die eine neue Marktchance außerhalb der Linienlogik testen wollen."]
             ].map(([label, title, body], index) => (
-              <article key={label} className="border border-neutral-200 bg-white p-5 md:p-6">
+              <article key={label} className="border border-neutral-200 bg-white p-4 sm:p-5 md:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">{label}</p>
                 <h3 className="mt-5 text-lg font-semibold leading-tight text-neutral-950">{title}</h3>
                 <p className="mt-4 text-sm leading-7 text-neutral-600">{body}</p>
@@ -493,8 +493,8 @@ export default function IncubatorHannoverPage() {
         </div>
       </section>
 
-      <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
+      <section className="overflow-hidden border-t border-neutral-200 bg-neutral-50">
+        <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24">
           <SectionIntro eyebrow="FAQ" title="Häufige Fragen zum Inkubator Hannover." />
           <div className="mt-10">
             <FAQ items={hannoverFaqs} />
