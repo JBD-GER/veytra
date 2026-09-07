@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
+    "test:tracking": "node --test tests/chatgpt-ads.test.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

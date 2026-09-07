@@ -67,6 +67,7 @@ export function InvestorForm({ idPrefix }: InvestorFormProps) {
 
       const result = (await response.json()) as {
         success: boolean;
+        conversionId?: string;
         message?: string;
         errors?: Record<string, string>;
       };
@@ -81,7 +82,9 @@ export function InvestorForm({ idPrefix }: InvestorFormProps) {
       }
 
       form.reset();
-      window.dispatchEvent(new Event("veytra:lead-conversion"));
+      window.dispatchEvent(new CustomEvent("veytra:lead-conversion", {
+        detail: { eventId: result.conversionId }
+      }));
       setState({
         status: "success",
         message: "Danke. Deine Anfrage wurde gesendet. Du wirst weitergeleitet.",

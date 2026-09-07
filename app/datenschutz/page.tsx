@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata(pageSeo.privacy);
 
-const lastUpdated = "Stand: Juli 2026";
+const lastUpdated = "Stand: September 2026";
 
 export default function PrivacyPage() {
   return (
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Datenschutz"
         title="Datenschutzerklärung."
-        description="Hier erklären wir, welche Daten wir auf der Veytra-Website verarbeiten, wofür sie genutzt werden und wie Cookie- und Google-Tracking-Einstellungen geändert werden können."
+        description="Hier erklären wir, welche Daten wir auf der Veytra-Website verarbeiten, wofür sie genutzt werden und wie Cookie-, Analyse- und Marketing-Einstellungen geändert werden können."
       />
 
       <section className="bg-white">
@@ -118,7 +118,36 @@ export default function PrivacyPage() {
               </p>
             </LegalSection>
 
-            <LegalSection title="7. Betroffenenrechte">
+            <LegalSection title="7. ChatGPT Ads (OpenAI)">
+              <p>
+                Nach deiner Einwilligung in Marketing verwenden wir den ChatGPT Ads Measurement Pixel
+                von OpenAI. Er misst erfolgreich übermittelte Anfragen, damit wir die Wirkung unserer
+                Anzeigen in ChatGPT auswerten können. Ohne diese Einwilligung laden wir den Pixel nicht.
+              </p>
+              <p>
+                Zur Zuordnung kann der Pixel die Anzeigen-Klickkennung oppref in einem First-Party-Cookie
+                namens __oppref speichern. Bei einer Conversion werden eine technische Ereignis-ID,
+                der Ereignistyp, Zeitpunkt, die Seitenherkunft sowie technische Verbindungsdaten an
+                OpenAI übermittelt. Unsere Conversion-Aufrufe enthalten keine Formularnachrichten.
+                Bereits gemeldete Ereignis-IDs speichern wir während der Browser-Sitzung lokal,
+                um Doppelzählungen zu vermeiden.
+              </p>
+              <p>
+                Sofern automatisches erweitertes Matching beim Pixel aktiviert ist, kann das OpenAI-SDK
+                unterstützte Kontaktangaben erkennen und vor der Übermittlung im Browser normalisieren
+                und mit SHA-256 hashen. Diese Angaben werden dabei als Hashwerte und nicht im Klartext
+                übermittelt. Rechtsgrundlage der Messung ist deine Einwilligung. Du kannst sie jederzeit
+                über die Cookie-Einstellungen mit Wirkung für die Zukunft widerrufen.
+              </p>
+              <p>
+                Weitere Informationen findest du in der{" "}
+                <a href="https://openai.com/policies/privacy-policy/" className="font-medium text-neutral-950 underline">
+                  Datenschutzerklärung von OpenAI
+                </a>.
+              </p>
+            </LegalSection>
+
+            <LegalSection title="8. Betroffenenrechte">
               <p>
                 Du hast im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung,
                 Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem kannst du
@@ -130,7 +159,7 @@ export default function PrivacyPage() {
               </p>
             </LegalSection>
 
-            <LegalSection title="8. Änderungen dieser Datenschutzerklärung">
+            <LegalSection title="9. Änderungen dieser Datenschutzerklärung">
               <p>
                 Wir können diese Datenschutzerklärung anpassen, wenn sich technische, organisatorische oder
                 rechtliche Anforderungen ändern. Es gilt die jeweils auf dieser Website veröffentlichte Fassung.

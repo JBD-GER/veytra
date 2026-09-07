@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -66,6 +67,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
+      conversionId: randomUUID(),
       message: "Danke. Deine Anfrage wurde gesendet. Wir melden uns mit einer Einschätzung zu Fit, MVP-Scope und Deal-Modell."
     });
   } catch {

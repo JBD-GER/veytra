@@ -2,11 +2,8 @@
 
 import { useEffect } from "react";
 
-type Consent = {
-  necessary: true;
-  analytics: boolean;
-  marketing: boolean;
-};
+import { syncChatGptAdsConsent, trackChatGptLead } from "@/lib/chatgpt-ads";
+import { COOKIE_CONSENT_STORAGE_KEY, readCookieConsent, type CookieConsent } from "@/lib/cookie-consent";
 
 declare global {
   interface Window {
@@ -18,7 +15,6 @@ declare global {
   }
 }
 
-const STORAGE_KEY = "veytra-cookie-consent";
 const LEAD_CONVERSION_KEY = "veytra-lead-conversion-sent";
 const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID || "";
 const googleTagManagerId =
@@ -35,30 +31,41 @@ export function TrackingManager() {
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
 
-    const storedConsent = readConsent();
-    if (storedConsent) applyConsent(storedConsent);
+    const storedConsent = readCookieConsent();
+    applyConsent(storedConsent || { necessary: true, analytics: false, marketing: false });
 
     window.veytraTrackConversion = (eventName = "lead_form_submit") => {
-      const consent = readConsent();
+      const consent = readCookieConsent();
       if (!consent?.marketing) return;
       sendLeadConversion(eventName);
     };
 
     function handleConsentUpdate(event: Event) {
-      const consent = (event as CustomEvent<Consent>).detail;
+      const consent = (event as CustomEvent<CookieConsent>).detail;
       applyConsent(consent);
     }
 
-    function handleLeadConversion() {
+    function handleLeadConversion(event: Event) {
+      const eventId = (event as CustomEvent<{ eventId?: string }>).detail?.eventId;
+      syncChatGptAdsConsent(readCookieConsent()?.marketing === true);
+      if (typeof eventId === "string") trackChatGptLead(eventId);
       window.veytraTrackConversion?.();
+    }
+
+    function handleStorageUpdate(event: StorageEvent) {
+      if (event.key === COOKIE_CONSENT_STORAGE_KEY || event.key === null) {
+        applyConsent(readCookieConsent() || { necessary: true, analytics: false, marketing: false });
+      }
     }
 
     window.addEventListener("veytra:consent-updated", handleConsentUpdate);
     window.addEventListener("veytra:lead-conversion", handleLeadConversion);
+    window.addEventListener("storage", handleStorageUpdate);
 
     return () => {
       window.removeEventListener("veytra:consent-updated", handleConsentUpdate);
       window.removeEventListener("veytra:lead-conversion", handleLeadConversion);
+      window.removeEventListener("storage", handleStorageUpdate);
       delete window.veytraTrackConversion;
     };
   }, []);
@@ -66,16 +73,8 @@ export function TrackingManager() {
   return null;
 }
 
-function readConsent(): Consent | null {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Consent) : null;
-  } catch {
-    return null;
-  }
-}
-
-function applyConsent(consent: Consent) {
+function applyConsent(consent: CookieConsent) {
+  syncChatGptAdsConsent(consent.marketing === true);
   window.dataLayer = window.dataLayer || [];
   window.gtag?.("consent", "update", {
     ad_storage: consent.marketing ? "granted" : "denied",

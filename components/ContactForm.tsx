@@ -51,6 +51,7 @@ export function ContactForm() {
 
       const result = (await response.json()) as {
         success: boolean;
+        conversionId?: string;
         message?: string;
         errors?: Record<string, string>;
       };
@@ -65,7 +66,9 @@ export function ContactForm() {
       }
 
       form.reset();
-      window.dispatchEvent(new Event("veytra:lead-conversion"));
+      window.dispatchEvent(new CustomEvent("veytra:lead-conversion", {
+        detail: { eventId: result.conversionId }
+      }));
       setState({
         status: "success",
         message: result.message || "Danke. Deine Anfrage wurde gesendet. Du wirst weitergeleitet.",

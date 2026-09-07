@@ -3,13 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-type Consent = {
-  necessary: true;
-  analytics: boolean;
-  marketing: boolean;
-};
-
-const STORAGE_KEY = "veytra-cookie-consent";
+import { COOKIE_CONSENT_STORAGE_KEY, COOKIE_CONSENT_VERSION, readCookieConsent, type CookieConsent } from "@/lib/cookie-consent";
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -19,7 +13,7 @@ export function CookieBanner() {
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      const existing = readStoredConsent();
+      const existing = readCookieConsent();
       if (existing) {
         setAnalytics(existing.analytics);
         setMarketing(existing.marketing);
@@ -29,7 +23,7 @@ export function CookieBanner() {
     });
 
     function openSettings() {
-      const current = readStoredConsent();
+      const current = readCookieConsent();
       setAnalytics(Boolean(current?.analytics));
       setMarketing(Boolean(current?.marketing));
       setSettingsOpen(true);
@@ -43,12 +37,12 @@ export function CookieBanner() {
     };
   }, []);
 
-  function saveConsent(consent: Consent) {
+  function saveConsent(consent: CookieConsent) {
     window.localStorage.setItem(
-      STORAGE_KEY,
+      COOKIE_CONSENT_STORAGE_KEY,
       JSON.stringify({
         ...consent,
-        version: 1,
+        version: COOKIE_CONSENT_VERSION,
         savedAt: new Date().toISOString()
       })
     );
@@ -78,7 +72,7 @@ export function CookieBanner() {
           </h2>
           <p className="mt-4 text-sm leading-7 text-neutral-600">
             Wir nutzen notwendige Speicherungen für den Betrieb der Website. Google Analytics,
-            Google Ads oder Google Tag Manager werden erst nach deiner Einwilligung aktiviert.
+            Google Ads, Google Tag Manager und ChatGPT Ads (OpenAI) werden erst nach deiner Einwilligung aktiviert.
             Details findest du in der{" "}
             <Link href="/datenschutz" className="font-medium text-neutral-950 underline">
               Datenschutzerklärung
@@ -103,7 +97,7 @@ export function CookieBanner() {
             />
             <ConsentOption
               title="Marketing"
-              description="Google Ads, Conversion-Messung und Kampagnenauswertung."
+              description="Google Ads und ChatGPT Ads (OpenAI) zur Conversion-Messung und Kampagnenauswertung."
               checked={marketing}
               onChange={setMarketing}
             />
@@ -140,15 +134,6 @@ export function CookieBanner() {
       </section>
     </div>
   );
-}
-
-function readStoredConsent(): Consent | null {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Consent) : null;
-  } catch {
-    return null;
-  }
 }
 
 type ConsentOptionProps = {
