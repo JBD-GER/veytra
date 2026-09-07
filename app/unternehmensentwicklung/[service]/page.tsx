@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Arrow, PhaseGraphic, PhaseLinks, ProofStrip } from "@/components/business-development/DevelopmentShared";
+import { ContactPerson } from "@/components/business-development/ContactPerson";
 import { ExternalResources } from "@/components/business-development/ExternalResources";
 import { StructuredData } from "@/components/StructuredData";
 import { developmentBasePath, developmentPhases } from "@/content/business-development";
@@ -41,6 +42,7 @@ export default async function DevelopmentServicePage({ params }: Props) {
       <nav className={styles.breadcrumb} aria-label="Brotkrümelnavigation"><Link href={developmentBasePath}>Unternehmensentwicklung</Link><span aria-hidden="true">/</span><span aria-current="page">{phase.name}</span></nav>
       <div className={styles.serviceHeroGrid}><div><p className={styles.eyebrow}><i /> {phase.number} / {phase.label}</p><h1>{phase.headline}</h1><p className={styles.heroDescription}>{phase.summary}</p><div className={styles.buttonRow}><Link href="/kontakt" className={styles.primaryButton}>{phase.cta} <Arrow diagonal /></Link><a href="#ergebnis" className={styles.secondaryButton}>Das erhalten Sie <Arrow /></a></div><ExternalResources /></div><aside className={styles.serviceOutput}><span className={styles.micro}>IHR ERGEBNIS / {phase.name}</span><PhaseGraphic phase={phase.id} /><h2>{phase.output}</h2><p>{phase.outputDescription}</p><span className={styles.smallMuted}>{phase.id === "validate" ? "Grafik: illustratives Rating-Beispiel" : "Ein klar definiertes Ergebnis für Ihre Entscheidung."}</span></aside></div>
     </div></section>
+    <ContactPerson />
     <ProofStrip />
     <section id="ergebnis" className={styles.section}>
       <div className={styles.container}>
