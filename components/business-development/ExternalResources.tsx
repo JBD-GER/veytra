@@ -16,7 +16,7 @@ export function ExternalResources() {
         </a>
         <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="ChatGPT von OpenAI: KI-Assistent (öffnet einen neuen Tab)">
           <span className={styles.resourceBrand}>
-            <Image src="/brands/chatgpt.webp" alt="" width={32} height={32} unoptimized />
+            <Image src="/brands/chatgpt.svg" alt="" width={32} height={32} unoptimized />
             <span>ChatGPT</span>
           </span>
           <span className={styles.resourceDescription}>KI-Assistent von OpenAI <Arrow diagonal /></span>
