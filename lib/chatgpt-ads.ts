@@ -1,5 +1,5 @@
 // OpenAI Measurement Pixel: https://developers.openai.com/ads/measurement-pixel
-const PIXEL_ID = "PQF8w1AJthqXZf5zVV25vn";
+const PIXEL_ID = "LqP8zv4gSXaFsuysnsYrZX";
 const SCRIPT_ID = "veytra-chatgpt-ads-pixel";
 const SDK_URL = "https://bzrcdn.openai.com/sdk/oaiq.min.js";
 const SENT_EVENTS_KEY = "veytra-chatgpt-leads-sent";

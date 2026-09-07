@@ -141,7 +141,7 @@ test("initializes the supplied pixel once, with consent before init and debug of
   assert.equal(ctx.calls[0][1], false);
   const inits = ctx.calls.filter(([command]) => command === "init");
   assert.equal(inits.length, 1);
-  assert.equal(inits[0][1].pixelId, "PQF8w1AJthqXZf5zVV25vn");
+  assert.equal(inits[0][1].pixelId, "LqP8zv4gSXaFsuysnsYrZX");
   assert.equal(inits[0][1].debug, false);
   assert.equal(ctx.measurements().length, 0);
 });
