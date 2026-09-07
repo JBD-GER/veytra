@@ -24,6 +24,7 @@ const headerNavigation: HeaderNavigationItem[] = [
   {
     label: "Veytra",
     children: [
+      { label: "Unternehmensentwicklung", href: "/unternehmensentwicklung" },
       { label: "Inkubator Hannover", href: "/inkubator-hannover" },
       { label: "Leistungen", href: "/leistungen" },
       { label: "Prozess", href: "/prozess" },

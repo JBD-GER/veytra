@@ -26,6 +26,11 @@ export const site = {
 
 export const sitePaths = [
   "/",
+  "/unternehmensentwicklung",
+  "/unternehmensentwicklung/geschaeftsideen",
+  "/unternehmensentwicklung/geschaeftsidee-validieren",
+  "/unternehmensentwicklung/wachstum",
+  "/unternehmensentwicklung/performance",
   "/venture-studio",
   "/ai-venture-studio",
   "/inkubator-hannover",

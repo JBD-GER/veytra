@@ -4,6 +4,7 @@ export type NavigationItem = {
 };
 
 export const navigationItems: NavigationItem[] = [
+  { label: "Unternehmensentwicklung", href: "/unternehmensentwicklung" },
   { label: "Venture Studio", href: "/venture-studio" },
   { label: "AI Venture Studio", href: "/ai-venture-studio" },
   { label: "Inkubator Hannover", href: "/inkubator-hannover" },
