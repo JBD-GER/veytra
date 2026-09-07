@@ -9,6 +9,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { pageSeo } from "@/content/pages";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.services);
 
@@ -296,6 +297,8 @@ export default function LeistungenPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section className="border-y border-neutral-800 bg-neutral-950 text-white">
         <div className="mx-auto grid max-w-[1240px] gap-8 px-5 py-14 md:gap-12 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">

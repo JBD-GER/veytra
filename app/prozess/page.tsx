@@ -10,6 +10,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { pageSeo } from "@/content/pages";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.process);
 
@@ -210,6 +211,8 @@ export default function ProcessPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section id="vertrag" className="scroll-mt-20 overflow-hidden border-b border-neutral-200 bg-neutral-950 text-white">
         <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-28">

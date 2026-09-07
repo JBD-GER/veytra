@@ -8,6 +8,7 @@ import { caseStudies } from "@/content/case-studies";
 import { pageSeo } from "@/content/pages";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.caseStudies);
 
@@ -99,6 +100,8 @@ export default function CaseStudiesPage() {
           ))}
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <CaseStudyShowcase studies={caseStudies} />
 

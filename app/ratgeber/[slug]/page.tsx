@@ -7,6 +7,7 @@ import { CTASection } from "@/components/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 import { getRatgeberArticle, ratgeberArticles, type ArticleGraphic } from "@/content/ratgeber-articles";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 type RatgeberArticlePageProps = {
   params: Promise<{
@@ -212,6 +213,8 @@ export default async function RatgeberArticlePage({ params }: RatgeberArticlePag
                 </p>
               ))}
             </div>
+
+            <PortraitContactCTA />
 
             <div className="grid gap-14 py-12">
               {article.sections.map((section) => (

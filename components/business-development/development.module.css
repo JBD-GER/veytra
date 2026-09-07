@@ -285,20 +285,6 @@
 .serviceOutput > h2 { font-size: 30px; }
 .serviceOutput > p { color: #6c785d; font-size: 12px; line-height: 1.95; margin-top: 20px; }
 .serviceOutput > .smallMuted { display: block; font-size: 8px; margin-top: 25px; border-top: 1px solid #d0d9c2; padding-top: 15px; }
-.contactPersonSection { padding-bottom: 48px; }
-.contactPersonCard { display: grid; grid-template-columns: 260px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: #fbfaf7; }
-.contactPersonPhoto { position: relative; min-height: 340px; background: #e4e6e0; }
-.contactPersonImage { object-fit: cover; object-position: 52% 26%; }
-.contactPersonCopy { padding: 30px 38px; }
-.contactPersonCopy > .eyebrow { color: var(--accent); font-size: 9px; }
-.contactPersonCopy > h2 { margin-top: 14px; font-size: 34px; line-height: 1.15; }
-.contactPersonRole { margin-top: 6px !important; color: var(--muted); font-size: 11px; }
-.contactPersonIntro { max-width: 690px; margin-top: 18px !important; color: var(--muted); font-size: 13px; line-height: 1.85; }
-.contactPersonActions { display: flex; flex-wrap: wrap; align-items: center; gap: 15px 26px; margin-top: 23px; }
-.contactPersonDetails { display: flex; flex-direction: column; gap: 2px; }
-.contactPersonDetails a { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-height: 28px; font-size: 11px; }
-.contactPersonDetails a > span { min-width: 36px; color: var(--muted); font-size: 10px; }
-.contactPersonDetails a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .deliverableGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); }
 .deliverableGrid article { padding: 28px; }
 .deliverableGrid article + article { border-left: 1px solid var(--line); }
@@ -375,7 +361,6 @@
   .finalLinks a { padding-left: 15px; }
   .finalLinks a > span:nth-child(2) { font-size: 12px; }
   .serviceHeroGrid, .serviceProcessGrid { gap: 40px; }
-  .contactPersonCopy { padding: 28px; }
 }
 @media (max-width: 767px) {
   .container { width: calc(100% - 40px); }
@@ -492,17 +477,6 @@
   .serviceHeroGrid h1 { font-size: 43px; }
   .serviceOutput { max-width: 500px; padding: 27px; }
   .serviceOutput > h2 { font-size: 31px; }
-  .contactPersonSection { padding-bottom: 34px; }
-  .contactPersonCard { grid-template-columns: minmax(0, 1fr); }
-  .contactPersonPhoto { min-height: 0; height: clamp(240px, 64vw, 360px); }
-  .contactPersonImage { object-position: 50% 15%; }
-  .contactPersonCopy { padding: 25px; }
-  .contactPersonCopy > h2 { font-size: 31px; }
-  .contactPersonCopy > .eyebrow { font-size: 8px; }
-  .contactPersonActions { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .contactPersonActions > .primaryButton { width: 100%; }
-  .contactPersonDetails { width: 100%; }
-  .contactPersonDetails a { min-height: 36px; font-size: 12px; }
   .deliverableGrid { grid-template-columns: 1fr; }
   .deliverableGrid article + article { border-left: 0; border-top: 1px solid var(--line); }
   .deliverableGrid h3 { font-size: 25px; }

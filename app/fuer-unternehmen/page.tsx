@@ -11,6 +11,7 @@ import { faqs } from "@/content/faqs";
 import { pageSeo } from "@/content/pages";
 import { faqSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.companies);
 
@@ -341,6 +342,8 @@ export default function CompaniesPage() {
           <CorporateProblemPulse statements={problemStatements} />
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <CorporateVentureSystem stages={ventureStages} />
 

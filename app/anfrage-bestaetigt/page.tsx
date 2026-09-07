@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = {
   title: "Anfrage eingegangen",
@@ -58,6 +59,10 @@ export default function RequestConfirmedPage() {
               Case Studies ansehen
             </Link>
           </div>
+        </div>
+
+        <div className="mt-10">
+          <PortraitContactCTA href="mailto:info@veytra.de" label="E-Mail schreiben" message="Für Rückfragen zu Ihrer Anfrage erreichen Sie uns direkt per E-Mail." />
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-3">

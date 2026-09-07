@@ -9,6 +9,7 @@ import type { FAQItem } from "@/content/faqs";
 import { faqSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 const pagePath = "/inkubator-hannover";
 
@@ -343,6 +344,8 @@ export default function IncubatorHannoverPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section className="overflow-hidden border-y border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-5 sm:py-14 md:px-8 md:py-24">

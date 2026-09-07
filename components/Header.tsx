@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { LogoWordmark } from "@/components/LogoWordmark";
-import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 import { cn } from "@/lib/utils";
 
 type HeaderNavigationItem = {
@@ -71,7 +70,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-2 px-5 sm:gap-4 md:px-8">
+      <div className="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-4 px-5 md:px-8">
         <LogoWordmark />
 
         <nav aria-label="Hauptnavigation" className="hidden items-center gap-5 xl:flex">
@@ -122,13 +121,18 @@ export function Header() {
           })}
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center xl:ml-0">
-          <PortraitContactCTA onClick={() => setIsOpen(false)} />
+        <div className="hidden items-center gap-3 xl:flex">
+          <Link
+            href="/kontakt"
+            className="rounded-[6px] border border-neutral-950 bg-neutral-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
+          >
+            Venture anfragen
+          </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex min-h-11 shrink-0 items-center rounded-[6px] border border-neutral-300 px-3 text-sm font-medium text-neutral-950 transition hover:border-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950 sm:px-4 xl:hidden"
+          className="ml-auto inline-flex min-h-11 shrink-0 items-center rounded-[6px] border border-neutral-300 px-4 text-sm font-medium text-neutral-950 transition hover:border-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950 xl:hidden"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsOpen((value) => !value)}

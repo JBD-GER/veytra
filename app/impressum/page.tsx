@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { pageSeo } from "@/content/pages";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.imprint);
 
@@ -16,6 +17,8 @@ export default function ImprintPage() {
         title="Impressum."
         description="Anbieterkennzeichnung und Pflichtangaben für die Veytra-Website."
       />
+
+      <PortraitContactCTA href="mailto:info@veytra.de" label="E-Mail schreiben" message="Fragen zu VEYTRA? Ich bin Ihr direkter Ansprechpartner." />
 
       <section className="bg-white">
         <div className="mx-auto max-w-[900px] px-5 py-16 md:px-8 md:py-24">

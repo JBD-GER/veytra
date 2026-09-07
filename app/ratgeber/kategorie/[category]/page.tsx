@@ -9,6 +9,7 @@ import { ratgeberCategories } from "@/content/ratgeber";
 import { ratgeberArticlePreviews } from "@/content/ratgeber-articles";
 import { createMetadata } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 type CategoryPageProps = {
   params: Promise<{
@@ -118,6 +119,8 @@ export default async function RatgeberCategoryPage({ params }: CategoryPageProps
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section className="bg-white">
         <div className="mx-auto max-w-[1240px] px-5 py-16 md:px-8 md:py-24">

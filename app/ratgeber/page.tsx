@@ -9,6 +9,7 @@ import { ratgeberCategories } from "@/content/ratgeber";
 import { ratgeberArticlePreviews } from "@/content/ratgeber-articles";
 import { createMetadata } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 const pageTitle = "Ratgeber für Venture Studio, MVP und AI Ventures";
 const pageDescription =
@@ -161,6 +162,8 @@ export default function GuidePage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section id="beitraege" className="border-y border-neutral-200 bg-neutral-50 scroll-mt-20">
         <div className="mx-auto max-w-[1240px] px-5 py-16 md:px-8 md:py-24">

@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 const pricingSeo = {
   title: "Venture Studio Preise: Equity, Build-Fee & Audit | Veytra",
@@ -270,6 +271,8 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section id="preislogik" className="scroll-mt-20 overflow-hidden border-y border-neutral-200 bg-neutral-950 text-white">
         <div className="relative mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">

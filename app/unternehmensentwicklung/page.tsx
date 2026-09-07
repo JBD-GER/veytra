@@ -8,6 +8,7 @@ import { developmentBasePath, developmentFaqs, developmentPhases, exampleRatingM
 import { getSiteUrl } from "@/lib/site";
 import { createMetadata } from "@/lib/seo";
 import styles from "@/components/business-development/development.module.css";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 const seo = createMetadata({
   title: "Unternehmensentwicklung: von der Idee zum Wachstum | Veytra",
@@ -62,6 +63,8 @@ export default function BusinessDevelopmentPage() {
       </section>
 
       <ProofStrip />
+
+      <PortraitContactCTA />
 
       <section id="unternehmensphase" className={styles.section} aria-labelledby="phase-title">
         <div className={styles.container}>

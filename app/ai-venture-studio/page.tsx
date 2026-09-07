@@ -13,6 +13,7 @@ import { pageSeo } from "@/content/pages";
 import { faqSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.aiVentureStudio);
 
@@ -315,6 +316,8 @@ export default function AIVentureStudioPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA />
 
       <section className="border-y border-neutral-200 bg-neutral-50">
         <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">

@@ -9,6 +9,7 @@ import {
 import { StructuredData } from "@/components/StructuredData";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata({
   title: "Investorenliste für Startups, Dealflow & Venture-Projekte",
@@ -225,6 +226,8 @@ export default function InvestorsPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA href="/fuer-investoren#investor-form" message="Interesse an einem Austausch über Ventures und Dealflow? Lassen Sie uns sprechen." />
 
       <section className="border-y border-neutral-200 bg-neutral-50">
         <div className="mx-auto grid max-w-[1240px] gap-4 px-5 py-14 md:gap-10 md:px-8 md:py-24 lg:grid-cols-2">

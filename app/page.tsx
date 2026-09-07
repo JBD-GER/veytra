@@ -21,6 +21,7 @@ import { faqs } from "@/content/faqs";
 import { pageSeo } from "@/content/pages";
 import { faqSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.home);
 
@@ -156,6 +157,8 @@ export default function HomePage() {
       <HeroSection />
 
       <VentureProbabilityGraph />
+
+      <PortraitContactCTA />
 
       <section className="bg-white">
         <div className="mx-auto max-w-[1240px] px-5 py-16 md:px-8 md:py-28">

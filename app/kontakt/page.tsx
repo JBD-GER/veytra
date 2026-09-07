@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { pageSeo } from "@/content/pages";
 import { createMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata(pageSeo.contact);
 
@@ -63,6 +64,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <PortraitContactCTA href="mailto:info@veytra.de" label="E-Mail schreiben" message="Eine Frage vor der Anfrage? Schreiben Sie mir oder schildern Sie Ihr Vorhaben im Formular." />
 
       <section id="anfrage" className="bg-white">
         <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.72fr_1.28fr]">

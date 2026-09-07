@@ -6,6 +6,7 @@ import { StoryMilestones } from "@/components/StoryMilestones";
 import { StructuredData } from "@/components/StructuredData";
 import { createMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
+import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata({
   title: "Veytra Geschichte: Vom Digitalprojekt zum Venture Studio",
@@ -80,6 +81,8 @@ export default function StoryPage() {
       />
 
       <StoryMilestones milestones={milestones} />
+
+      <PortraitContactCTA />
 
       <section className="bg-white">
         <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
