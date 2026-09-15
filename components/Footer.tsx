@@ -98,6 +98,17 @@ export function Footer() {
             Venture anfragen
           </Link>
         </div>
+        <p className="mt-4 text-sm text-neutral-500">
+          Konzeption &amp; Umsetzung durch{" "}
+          <a
+            href="https://www.justbedigital.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition hover:text-neutral-950"
+          >
+            JustBeDigital
+          </a>
+        </p>
       </div>
     </footer>
   );
