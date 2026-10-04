@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AuditOffer } from "@/components/AuditOffer";
 import { CTASection } from "@/components/CTASection";
 import { StructuredData } from "@/components/StructuredData";
 import { createMetadata } from "@/lib/seo";
@@ -10,7 +11,7 @@ import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 const pricingSeo = {
   title: "Venture Studio Preise: Equity, Build-Fee & Audit | Veytra",
   description:
-    "Venture Studio Preise bei Veytra: 3.500 € Venture-Audit, Equity-Modell, Hybrid mit 3.000-8.000 €+ Build-Fee und Corporate-Modell ab 8.000 €+.",
+    "Venture Studio Preise bei Veytra: 599 € zzgl. MwSt. Venture-Audit, Equity-Modell, Hybrid mit 3.000-8.000 €+ Build-Fee und Corporate-Modell ab 8.000 €+.",
   path: "/preise"
 };
 
@@ -41,9 +42,9 @@ const pricingSchema = {
       {
         "@type": "Offer",
         name: "Venture-Audit",
-        price: "3500",
+        price: "599",
         priceCurrency: "EUR",
-        description: "Fixpreis vor jedem operativen Venture-Build."
+        description: "599 € zzgl. MwSt., zwei Calls und schriftliche Analyse. Rechnung in 1–2 Werktagen; Start nach Zahlungseingang."
       },
       {
         "@type": "Offer",
@@ -68,7 +69,7 @@ const pricingSchema = {
 const heroLinks = [
   { label: "Build-Modelle", href: "#build-modelle" },
   { label: "Preislogik", href: "#preislogik" },
-  { label: "Venture-Audit", href: "#venture-audit" },
+  { label: "Venture-Audit", href: "#first-audit" },
   { label: "Stop-Logik", href: "#stop-logik" }
 ];
 
@@ -164,19 +165,17 @@ export default function PricingPage() {
               Preis & Modelle
             </p>
             <h1 className="mt-6 text-3xl font-semibold leading-tight text-neutral-950 md:text-5xl">
-              Venture Studio Preise: ohne volles Startkapital starten, aber mit klarer Deal-Logik.
+              Dein Einstieg: First Audit für 599 € zzgl. MwSt.
             </h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-neutral-600 md:mt-7 md:text-xl md:leading-9">
-              Du musst nicht alles vorfinanzieren, um mit Veytra zu starten. Je nach Idee,
-              Marktchance und Ausgangslage arbeiten wir mit Equity, Build-Fee, Asset Share oder
-              Revenue Share.
+              Jede neue Zusammenarbeit beginnt mit dem First Audit: Marktanalyse, Verkaufspotenzial, Umsetzungschancen und zwei Calls. Die Rechnung erhältst du in 1–2 Werktagen; wir starten nach Zahlungseingang. Mögliche Build-Modelle werden erst im Anschluss separat vereinbart.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-5 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
               >
-                Modell klären
+                First Audit · 599 €
               </Link>
               <Link
                 href="/prozess"
@@ -220,6 +219,7 @@ export default function PricingPage() {
         </div>
       </section>
 
+      <AuditOffer />
       <section id="build-modelle" className="scroll-mt-20 bg-white">
         <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
           <div data-reveal="slide" className="border-b border-neutral-200 pb-10">
@@ -319,7 +319,7 @@ export default function PricingPage() {
                     </div>
                     {"cta" in item ? (
                       <a
-                        href="#venture-audit"
+                        href="#first-audit"
                         className="inline-flex min-h-11 items-center justify-center rounded-[6px] border border-white bg-white px-4 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200"
                       >
                         {item.cta}
@@ -328,69 +328,6 @@ export default function PricingPage() {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="venture-audit" className="scroll-mt-20 border-y border-neutral-200 bg-neutral-50">
-        <div className="mx-auto max-w-[1240px] px-5 py-14 md:px-8 md:py-24">
-          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-            <div data-reveal="slide" className="lg:sticky lg:top-24">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                Venture-Audit
-              </p>
-              <h2 className="mt-5 text-2xl font-semibold leading-tight text-neutral-950 md:text-4xl">
-                Erst prüfen wir die Idee. Dann entscheiden wir über den Build.
-              </h2>
-              <p className="mt-6 text-base leading-8 text-neutral-600 md:text-lg">
-                Das Audit schützt vor falschem Tempo. Wir validieren Problem, Markt,
-                Zielgruppe, Produktlogik und wirtschaftliches Potenzial, bevor unnötig Zeit,
-                Budget und weitere Kosten in einen Build fließen. Zusätzlich holen wir
-                Experteneinschätzungen ein, damit die Chance nicht nur gut klingt, sondern
-                belastbar geprüft ist.
-              </p>
-            </div>
-
-            <div className="grid gap-4">
-              <article data-reveal="scale" className="relative overflow-hidden border border-neutral-200 bg-white p-6 shadow-[0_24px_80px_rgba(23,23,23,0.06)] md:p-8">
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(23,23,23,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(23,23,23,0.035)_1px,transparent_1px)] bg-[size:72px_72px]" />
-                <div className="relative grid gap-8 md:grid-cols-[0.42fr_0.58fr] md:items-end">
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                      Fixpreis vor dem Build
-                    </p>
-                    <p className="mt-5 text-4xl font-semibold tracking-tight text-neutral-950 md:text-5xl">3.500 €</p>
-                    <p className="mt-3 text-base font-semibold text-neutral-950">100 % Vorkasse</p>
-                  </div>
-                  <p className="text-base leading-8 text-neutral-600">
-                    Ergebnis: ein validierter Bauplan mit Positionierung, Produktlogik,
-                    Kostenrahmen, Risiko-Einschätzung und Empfehlung für Equity-, Hybrid- oder
-                    Corporate-Modell.
-                  </p>
-                </div>
-              </article>
-
-              <div className="grid gap-3 md:grid-cols-3 md:gap-4">
-                {[
-                  ["Prüfen", "Problem, Markt, Zielgruppe, Wettbewerb und wirtschaftliche Plausibilität."],
-                  ["Bestätigen", "Potenzial, Schwachstellen und Annahmen werden mit Expertenblick eingeordnet."],
-                  ["Entscheiden", "Erst danach wird gebaut, angepasst oder bewusst nicht weiter investiert."]
-                ].map(([title, body], index) => (
-                  <article
-                    key={title}
-                    data-reveal="slide"
-                    data-reveal-delay={`${index * 70}ms`}
-                    className="border border-neutral-200 bg-white p-5"
-                  >
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                      Schritt {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mt-5 text-lg font-semibold text-neutral-950">{title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-neutral-600">{body}</p>
-                  </article>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -433,7 +370,7 @@ export default function PricingPage() {
       <CTASection
         title="Willst du wissen, welches Modell für deine Idee passt?"
         description="Wir prüfen Idee, Marktchance, MVP-Scope, Risiko, Budget und Beteiligungslogik. Danach weißt du, welches Modell realistisch ist."
-        primaryLabel="Modell klären"
+        primaryLabel="First Audit · 599 €"
         secondaryLabel="Prozess ansehen"
         secondaryHref="/prozess"
       />

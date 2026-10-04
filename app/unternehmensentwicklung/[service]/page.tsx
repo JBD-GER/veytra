@@ -13,7 +13,7 @@ import styles from "@/components/business-development/development.module.css";
 
 type Props = { params: Promise<{ service: string }> };
 export const dynamicParams = false;
-const contactCtaLabel = "Kostenloses Erstgespräch";
+const contactCtaLabel = "First Audit · 599 € zzgl. MwSt.";
 
 export function generateStaticParams() {
   return developmentPhases.map((phase) => ({ service: phase.slug }));

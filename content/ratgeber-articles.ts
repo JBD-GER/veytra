@@ -1276,7 +1276,7 @@ export const ratgeberArticles: RatgeberArticle[] = [
         id: "veytra-preise",
         title: "Mit welchen Veytra Preisen Interessenten aktuell rechnen können",
         paragraphs: [
-          "Bei Veytra beginnt jeder mögliche Build mit einem Venture Audit für 3.500 Euro. Es prüft Idee, Markt, Produktlogik, Scope und Deal-Fit, bevor über ein Equity-, Hybrid- oder Corporate-Modell entschieden wird. Der Betrag schafft einen klar abgegrenzten Einstieg und verhindert, dass Beteiligung oder monatelange Build-Kosten auf einer ungeprüften Idee aufsetzen.",
+          "Bei Veytra beginnt jeder mögliche Build mit einem Venture Audit für 599 Euro zzgl. MwSt. Es prüft Idee, Markt, Produktlogik, Scope und Deal-Fit, bevor über ein Equity-, Hybrid- oder Corporate-Modell entschieden wird. Der Betrag schafft einen klar abgegrenzten Einstieg und verhindert, dass Beteiligung oder monatelange Build-Kosten auf einer ungeprüften Idee aufsetzen.",
           "Für ausgewählte Founder-Cases ist ein reines Equity-Modell ohne laufende Build-Fee mit 30 bis 40 Prozent Beteiligung vorgesehen. Das Hybrid-Modell liegt bei 3.000 bis 8.000 Euro oder mehr pro Monat plus 10 bis 20 Prozent Beteiligung. Corporate Builds liegen bei 8.000 bis 25.000 Euro oder mehr pro Monat, ohne klassische Equity und mit optionaler Erfolgsbeteiligung. Maßgeblich bleibt immer die individuelle schriftliche Vereinbarung."
         ]
       },
@@ -1301,7 +1301,7 @@ export const ratgeberArticles: RatgeberArticle[] = [
       {
         question: "Was kostet die Zusammenarbeit mit einem Venture Studio?",
         answer:
-          "Die Kosten hängen von Phase, Team, technischer Komplexität und Risikoverteilung ab. Bei Veytra kostet das vorgeschaltete Venture Audit 3.500 Euro; mögliche Build-Modelle reichen danach von Equity ohne laufende Build-Fee bis zu monatlich finanzierten Hybrid- oder Corporate-Modellen."
+          "Die Kosten hängen von Phase, Team, technischer Komplexität und Risikoverteilung ab. Bei Veytra kostet das vorgeschaltete Venture Audit 599 Euro zzgl. MwSt.; mögliche Build-Modelle reichen danach von Equity ohne laufende Build-Fee bis zu monatlich finanzierten Hybrid- oder Corporate-Modellen."
       },
       {
         question: "Ist ein Equity-Modell kostenlos?",

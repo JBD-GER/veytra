@@ -61,7 +61,7 @@ export default function TermsPage() {
 
             <LegalSection title="3. Venture-Audit und Startprüfung">
               <p>
-                Vor einem operativen Build kann Veytra ein Venture-Audit oder eine Startprüfung durchführen.
+                Jede neue Zusammenarbeit beginnt mit dem First Audit für 599 € zzgl. MwSt. Es umfasst eine schriftliche Markt-, Wettbewerbs- und Potenzialanalyse mit Einschätzung zur Verkaufbarkeit und Umsetzbarkeit sowie zwei Calls: Kennenlernen und Briefing, anschließend Abschlussbesprechung. Die Rechnung wird innerhalb von 1–2 Werktagen erstellt und übermittelt. Calls und Analyse starten nach vollständigem Zahlungseingang. Eine anschließende Umsetzung erfordert eine separate Vereinbarung.
                 Ziel ist es, Annahmen, Marktlogik, Risiken, Ressourcen, technische Machbarkeit und nächste
                 Schritte zu klären, bevor unnötig Zeit und Budget in den Aufbau fließen.
               </p>

@@ -82,7 +82,7 @@ function setup() {
 const validFields = {
   firstName: "Test", lastName: "Person", name: "Test Person", email: "lead@example.test",
   phone: "+49 123 456789", company: "Example", audience: "Gründer", message: "Test inquiry",
-  privacyAccepted: "on", privacy: "on", website: ""
+  privacyAccepted: "on", privacy: "on", auditAccepted: "on", billingAddress: "Example GmbH, Teststraße 1, 12345 Berlin, Deutschland", website: ""
 };
 
 function contactApi({ fail = false } = {}) {
@@ -146,7 +146,7 @@ test("initializes the supplied pixel once, with consent before init and debug of
   assert.equal(ctx.measurements().length, 0);
 });
 
-for (const name of ["ContactForm", "InvestorForm"]) {
+for (const name of ["ContactForm"]) {
   test(`${name}: a delivered request emits one lead_created with the server event ID`, async () => {
     const ctx = setup();
     ctx.setConsent(true); ctx.mountTracking(); ctx.loadSdk();
@@ -243,4 +243,27 @@ test("malformed or stale cookie choices never grant tracking consent", () => {
     ctx.window.localStorage.setItem(ctx.consent.COOKIE_CONSENT_STORAGE_KEY, value);
     assert.equal(ctx.consent.readCookieConsent(), null);
   }
+});
+
+
+test("audit orders require price consent and billing details before any email or conversion", async () => {
+  for (const overrides of [{auditAccepted: null}, {billingAddress: ""}]) {
+    const ctx = setup(); ctx.setConsent(true); ctx.mountTracking(); ctx.loadSdk();
+    const api = contactApi();
+    const result = await submitForm(ctx, "ContactForm", api, overrides);
+    assert.equal(result.states.at(-1).status, "error");
+    assert.equal(api.sent.length, 0);
+    assert.equal(ctx.measurements().length, 0);
+    assert.equal(result.redirects.length, 0);
+  }
+});
+
+test("investor entry routes to the single paid audit without creating a lead", () => {
+  const jsx = (type, props) => ({type, props});
+  const investorModule = loadModule("components/InvestorForm.tsx", {}, {
+    "next/link": {default: "a"}, "react/jsx-runtime": {jsx, jsxs: jsx}
+  });
+  const element = investorModule.InvestorForm({idPrefix: "investor-test"});
+  assert.equal(element.props.onSubmit, undefined);
+  assert.equal(element.props.children[1].props.href, "/kontakt#anfrage");
 });

@@ -325,7 +325,7 @@ export default function FoundersPage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-5 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
               >
-                Venture anfragen
+                First Audit · 599 €
               </Link>
               <Link
                 href="/prozess"
@@ -663,7 +663,7 @@ export default function FoundersPage() {
       <CTASection
         title="Du hast eine Idee, aber dir fehlt das operative Team?"
         description="Sprich mit uns über Problem, Zielgruppe, Marktpotenzial und die Lücke zwischen Idee und Venture. Wir prüfen, ob Veytra als Aufbaupartner passt."
-        primaryLabel="Erstgespräch anfragen"
+        primaryLabel="First Audit · 599 €"
         secondaryLabel="Prozess ansehen"
         secondaryHref="/prozess"
       />

@@ -70,6 +70,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur">
+      <Link href="/kontakt#first-audit" className="block bg-neutral-950 px-5 py-2 text-center text-xs leading-5 text-white">Jeder Einstieg: First Audit · 599 € zzgl. MwSt. · Analyse &amp; 2 Calls · Start nach Zahlungseingang ↗</Link>
       <div className="mx-auto flex h-20 max-w-[1240px] items-center justify-between gap-4 px-5 md:px-8">
         <LogoWordmark />
 
@@ -126,7 +127,7 @@ export function Header() {
             href="/kontakt"
             className="rounded-[6px] border border-neutral-950 bg-neutral-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
           >
-            Venture anfragen
+            First Audit · 599 €
           </Link>
         </div>
 
@@ -193,7 +194,7 @@ export function Header() {
                 pathname === "/kontakt" && "bg-neutral-800"
               )}
             >
-              Venture anfragen
+              First Audit · 599 €
             </Link>
           </nav>
         </div>

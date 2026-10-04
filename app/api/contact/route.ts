@@ -46,7 +46,7 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const subject = `Neue Venture Studio Anfrage von ${validation.data.name}`;
+  const subject = `Neue First-Audit-Beauftragung von ${validation.data.name}`;
 
   try {
     const { error } = await resend.emails.send({
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       conversionId: randomUUID(),
-      message: "Danke. Deine Anfrage wurde gesendet. Wir melden uns mit einer Einschätzung zu Fit, MVP-Scope und Deal-Modell."
+      message: "Danke. Deine Audit-Beauftragung ist eingegangen. Du erhältst die Rechnung über 599 € zzgl. MwSt. innerhalb von 1–2 Werktagen. Nach Zahlungseingang starten wir mit dem Briefing-Call."
     });
   } catch {
     return NextResponse.json(

@@ -72,7 +72,7 @@ export default function BusinessDevelopmentPage() {
           <div className={styles.selectionGrid}>
             {developmentPhases.map((phase) => <article key={phase.id} className={styles.selectionCard} data-reveal="slide"><div className={styles.cardTop}><span className={styles.phaseLabel}>{phase.number} / {phase.name}</span><span className={styles.smallArrow} aria-hidden="true">↗</span></div><h3>{phase.title}</h3><p className={styles.cardDescription}>{phase.description}</p><div className={styles.cardBottom}><div><span className={styles.micro}>{phase.label}</span><Link href={`${developmentBasePath}/${phase.slug}`} className={styles.cardLink}>{phase.cta} <Arrow /></Link><span className={styles.cardOutput}>{phase.output}</span></div><PhaseGraphic phase={phase.id} /></div>{phase.id === "validate" && <span className={styles.graphicNote}>Rating: illustratives Beispiel</span>}</article>)}
           </div>
-          <div className={styles.selectionNote}><span>Noch nicht sicher, welche Phase passt?</span><Link href="/kontakt" className={styles.textLink}>Gemeinsam einordnen <Arrow diagonal /></Link></div>
+          <div className={styles.selectionNote}><span>Noch nicht sicher, welche Phase passt?</span><Link href="/kontakt" className={styles.textLink}>First Audit · 599 € <Arrow diagonal /></Link></div>
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function BusinessDevelopmentPage() {
 
       <section className={styles.section} aria-labelledby="faq-title"><div className={`${styles.container} ${styles.faqGrid}`}><div><p className={styles.eyebrow}>GUT ZU WISSEN</p><h2 id="faq-title">Die wichtigsten<br />Fragen vorab.</h2><p className={styles.faqIntro}>Unternehmensentwicklung, Geschäftsentwicklung, Business Development: Im Mittelpunkt steht die nächste tragfähige Entscheidung für Ihr Unternehmen.</p></div><div className={styles.faqList}>{developmentFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
 
-      <section className={styles.finalSection} aria-labelledby="next-title"><div className={styles.container}><p className={styles.eyebrow}><i /> DER NÄCHSTE SCHRITT BEGINNT MIT KLARHEIT</p><h2 id="next-title">Welche Entscheidung<br />steht bei Ihnen<br /><span>als Nächstes an?</span></h2><PhaseLinks /><div className={styles.finalFoot}><p>Von der unternehmerischen Frage zur belastbaren Entscheidung.</p><Link href="/kontakt" className={styles.textLink}>Mit VEYTRA sprechen <Arrow diagonal /></Link></div></div></section>
+      <section className={styles.finalSection} aria-labelledby="next-title"><div className={styles.container}><p className={styles.eyebrow}><i /> DER NÄCHSTE SCHRITT BEGINNT MIT KLARHEIT</p><h2 id="next-title">Welche Entscheidung<br />steht bei Ihnen<br /><span>als Nächstes an?</span></h2><PhaseLinks /><div className={styles.finalFoot}><p>Von der unternehmerischen Frage zur belastbaren Entscheidung.</p><Link href="/kontakt" className={styles.textLink}>First Audit · 599 € <Arrow diagonal /></Link></div></div></section>
     </div>
   );
 }

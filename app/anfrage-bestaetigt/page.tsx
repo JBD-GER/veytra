@@ -12,21 +12,9 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  {
-    number: "01",
-    title: "Anfrage prüfen",
-    body: "Wir ordnen ein, ob es um Unternehmen, Gründer, Startup oder Investor geht und welcher nächste Schritt sinnvoll ist."
-  },
-  {
-    number: "02",
-    title: "Rückmeldung vorbereiten",
-    body: "Wenn der Fit passt, melden wir uns mit einer konkreten Einschätzung und einem passenden Gesprächsvorschlag."
-  },
-  {
-    number: "03",
-    title: "Nächste Entscheidung",
-    body: "Danach geht es um Audit, Validierung, MVP-Scope, Build-Modell oder Aufnahme in den passenden Investorendialog."
-  }
+  { number: "01", title: "Rechnung in 1–2 Werktagen", body: "Wir erstellen und übermitteln die Rechnung für dein First Audit über 599 € zzgl. MwSt. an die angegebene E-Mail-Adresse." },
+  { number: "02", title: "Bezahlen & Briefing vereinbaren", body: "Bitte bezahle die Rechnung vollständig. Nach Zahlungseingang vereinbaren wir Call 1 zum Kennenlernen und Briefing. Erst dann beginnt die Analyse." },
+  { number: "03", title: "Audit & Abschlussbesprechung", body: "Du erhältst die schriftliche Analyse. In Call 2 besprechen wir Marktchance, Verkaufspotenzial, Umsetzbarkeit und die nächsten Schritte." }
 ];
 
 export default function RequestConfirmedPage() {
@@ -42,8 +30,8 @@ export default function RequestConfirmedPage() {
             Danke. Deine Anfrage ist bei Veytra angekommen.
           </h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-white/68 md:text-xl md:leading-9">
-            Wir prüfen jetzt den Kontext und melden uns mit einer passenden Einschätzung. Falls etwas dringend ist,
-            kannst du zusätzlich direkt per E-Mail antworten.
+            Deine First-Audit-Beauftragung ist eingegangen. Du erhältst die Rechnung innerhalb von 1–2 Werktagen.
+            Nach vollständigem Zahlungseingang geht es mit den Calls und der Analyse los.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link

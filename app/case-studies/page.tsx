@@ -62,7 +62,7 @@ export default function CaseStudiesPage() {
         title="Case Studies aus Venture-Studio-Arbeit."
         description="Gebaut wurden bisher vor allem digitale Internet-, SaaS-, AI-, Funnel- und Plattformprojekte. Die Cases zeigen, wie Marktthese, Produktlogik, Design, Launch und Conversion zusammenkommen."
         links={[
-          { label: "Venture anfragen", href: "/kontakt" },
+          { label: "First Audit · 599 €", href: "/kontakt" },
           { label: "Prozess ansehen", href: "/prozess", variant: "secondary" }
         ]}
       />

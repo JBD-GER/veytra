@@ -12,6 +12,8 @@ export type ContactPayload = {
   message?: string;
   privacyAccepted?: boolean;
   website?: string;
+  auditAccepted?: boolean;
+  billingAddress?: string;
 };
 
 export type ValidationResult =
@@ -51,10 +53,19 @@ export function validateContactPayload(input: unknown): ValidationResult {
     budget: asString(body.budget),
     message: asString(body.message),
     privacyAccepted: body.privacyAccepted === true,
+    auditAccepted: body.auditAccepted === true,
+    billingAddress: asString(body.billingAddress),
     website: asString(body.website)
   };
 
   const errors: Record<string, string> = {};
+
+  if (!payload.auditAccepted) {
+    errors.auditAccepted = "Bitte bestätige die kostenpflichtige Beauftragung für 599 € zzgl. MwSt.";
+  }
+  if ((payload.billingAddress || "").length < 10) {
+    errors.billingAddress = "Bitte gib deine vollständige Rechnungsanschrift an.";
+  }
 
   if (payload.website) {
     errors.form = "Die Anfrage konnte nicht verarbeitet werden.";

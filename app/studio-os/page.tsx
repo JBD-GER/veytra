@@ -218,7 +218,7 @@ export default function ServicesPage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200"
               >
-                Venture anfragen
+                First Audit · 599 €
               </Link>
               <Link
                 href="/venture-studio"
@@ -414,7 +414,7 @@ export default function ServicesPage() {
       <CTASection
         title="Soll daraus ein Venture werden oder nur ein Projekt?"
         description="Wir prüfen These, Markt, Team, Kapitalbedarf und Ownership. Wenn daraus kein Unternehmen entstehen kann, sagen wir es."
-        primaryLabel="Venture anfragen"
+        primaryLabel="First Audit · 599 €"
         secondaryLabel="Prozess ansehen"
         secondaryHref="/prozess"
       />

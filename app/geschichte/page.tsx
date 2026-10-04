@@ -75,7 +75,7 @@ export default function StoryPage() {
         title="Veytra Geschichte: vom eigenen Digitalprojekt zum Venture Studio."
         description="Veytra entstand aus eigenen Builds, MVPs, Marktversuchen und der Frage, wie aus einer Idee ein belastbares digitales Geschäftsmodell wird."
         links={[
-          { label: "Venture anfragen", href: "/kontakt" },
+          { label: "First Audit · 599 €", href: "/kontakt" },
           { label: "Prozess ansehen", href: "/prozess", variant: "secondary" }
         ]}
       />

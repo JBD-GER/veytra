@@ -321,7 +321,7 @@ export default function CompaniesPage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-5 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950"
               >
-                Corporate Venture anfragen
+                Corporate First Audit · 599 €
               </Link>
               <Link
                 href="/ai-venture-studio"
@@ -589,7 +589,7 @@ export default function CompaniesPage() {
       <CTASection
         title="Ihr habt eine Marktchance, aber noch kein Venture?"
         description="Wir prüfen Zielgruppe, Datenlage, Produktlogik, Build-Budget, Governance und den schnellsten Weg zu einem belastbaren MVP."
-        primaryLabel="Corporate Venture anfragen"
+        primaryLabel="Corporate First Audit · 599 €"
         secondaryLabel="Prozess ansehen"
         secondaryHref="/prozess"
       />

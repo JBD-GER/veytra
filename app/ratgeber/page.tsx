@@ -88,7 +88,7 @@ export default function GuidePage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white/40 px-5 text-sm font-medium text-white transition hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
-                Venture anfragen
+                First Audit · 599 €
               </Link>
             </div>
           </div>

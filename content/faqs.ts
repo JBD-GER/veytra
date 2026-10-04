@@ -25,7 +25,7 @@ export const faqs: Record<FAQPageKey, FAQItem[]> = {
     {
       question: "Was kostet die Zusammenarbeit?",
       answer:
-        "Bei Corporate Venture Building finanzieren Unternehmen den Build und teilen sich dafür die Equity am neuen Venture. Bei klassischen Studio-Ventures investieren wir Kapital und operative Manpower und erhalten dafür einen signifikanten Anteil am Startup."
+        "Jede neue Zusammenarbeit beginnt mit dem First Audit für 599 € zzgl. MwSt.: Markt-, Wettbewerbs- und Potenzialanalyse, schriftliche Einschätzung zur Verkaufbarkeit und zwei Calls (Briefing und Abschluss). Die Rechnung wird in 1–2 Werktagen übermittelt; wir starten nach Zahlungseingang. Eine anschließende Umsetzung und das passende Build-Modell werden separat schriftlich vereinbart."
     },
     {
       question: "Wie viel Equity nimmt ein Venture Studio?",

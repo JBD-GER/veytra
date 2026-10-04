@@ -12,7 +12,7 @@ type SubmitState = {
 const initialState: SubmitState = {
   status: "idle",
   message: "",
-  errors: {}
+  errors: {},
 };
 
 const audienceOptions = ["Unternehmen", "Gründer", "Startup", "Investor"];
@@ -37,16 +37,18 @@ export function ContactForm() {
       audience: String(formData.get("audience") || ""),
       message: String(formData.get("message") || ""),
       privacyAccepted: formData.get("privacyAccepted") === "on",
-      website: String(formData.get("website") || "")
+      auditAccepted: formData.get("auditAccepted") === "on",
+      billingAddress: String(formData.get("billingAddress") || ""),
+      website: String(formData.get("website") || ""),
     };
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
       const result = (await response.json()) as {
@@ -59,27 +61,33 @@ export function ContactForm() {
       if (!response.ok || !result.success) {
         setState({
           status: "error",
-          message: result.message || "Die Anfrage konnte nicht gesendet werden.",
-          errors: result.errors || {}
+          message:
+            result.message || "Die Anfrage konnte nicht gesendet werden.",
+          errors: result.errors || {},
         });
         return;
       }
 
       form.reset();
-      window.dispatchEvent(new CustomEvent("veytra:lead-conversion", {
-        detail: { eventId: result.conversionId }
-      }));
+      window.dispatchEvent(
+        new CustomEvent("veytra:lead-conversion", {
+          detail: { eventId: result.conversionId },
+        }),
+      );
       setState({
         status: "success",
-        message: result.message || "Danke. Deine Anfrage wurde gesendet. Du wirst weitergeleitet.",
-        errors: {}
+        message:
+          result.message ||
+          "Danke. Deine Anfrage wurde gesendet. Du wirst weitergeleitet.",
+        errors: {},
       });
       window.setTimeout(() => router.push("/anfrage-bestaetigt"), 250);
     } catch {
       setState({
         status: "error",
-        message: "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es später erneut.",
-        errors: {}
+        message:
+          "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es später erneut.",
+        errors: {},
       });
     }
   }
@@ -87,20 +95,33 @@ export function ContactForm() {
   const isLoading = state.status === "loading";
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form-shell relative overflow-hidden border border-neutral-200 bg-white p-5 shadow-[0_28px_90px_rgba(23,23,23,0.08)] md:p-7" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      className="contact-form-shell relative overflow-hidden border border-neutral-200 bg-white p-5 shadow-[0_28px_90px_rgba(23,23,23,0.08)] md:p-7"
+      noValidate
+    >
       <div className="relative z-10">
         <div className="mb-7 flex flex-col gap-4 border-b border-neutral-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">Anfrage</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+              Anfrage
+            </p>
             <h2 className="mt-3 text-2xl font-semibold leading-tight text-neutral-950 md:text-3xl">
-              Kurz einordnen. Dann sprechen.
+              First Audit beauftragen.
             </h2>
           </div>
           <div className="inline-flex w-fit items-center gap-2 border border-neutral-200 bg-neutral-50 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
             <span className="h-2 w-2 rounded-full bg-neutral-950" />
-            Fit Check
+            599 € zzgl. MwSt.
           </div>
         </div>
+
+        <p className="mb-6 text-sm leading-7 text-neutral-600">
+          Ein schriftliches Audit und zwei Calls: Kennenlernen &amp; Briefing
+          sowie Abschlussbesprechung. Die Rechnung erhältst du innerhalb von 1–2
+          Werktagen. Nach vollständigem Zahlungseingang vereinbaren wir den
+          ersten Call und starten die Analyse.
+        </p>
 
         <div className="hidden" aria-hidden="true">
           <label htmlFor="website">Website</label>
@@ -108,7 +129,12 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          <Field label="Vorname" htmlFor="firstName" error={state.errors.firstName} required>
+          <Field
+            label="Vorname"
+            htmlFor="firstName"
+            error={state.errors.firstName}
+            required
+          >
             <input
               id="firstName"
               name="firstName"
@@ -120,7 +146,12 @@ export function ContactForm() {
             />
           </Field>
 
-          <Field label="Nachname" htmlFor="lastName" error={state.errors.lastName} required>
+          <Field
+            label="Nachname"
+            htmlFor="lastName"
+            error={state.errors.lastName}
+            required
+          >
             <input
               id="lastName"
               name="lastName"
@@ -134,7 +165,12 @@ export function ContactForm() {
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
-          <Field label="E-Mail" htmlFor="email" error={state.errors.email} required>
+          <Field
+            label="E-Mail"
+            htmlFor="email"
+            error={state.errors.email}
+            required
+          >
             <input
               id="email"
               name="email"
@@ -145,7 +181,12 @@ export function ContactForm() {
             />
           </Field>
 
-          <Field label="Telefonnummer" htmlFor="phone" error={state.errors.phone} required>
+          <Field
+            label="Telefonnummer"
+            htmlFor="phone"
+            error={state.errors.phone}
+            required
+          >
             <input
               id="phone"
               name="phone"
@@ -170,8 +211,19 @@ export function ContactForm() {
             />
           </Field>
 
-          <Field label="Ich bin / Wir sind" htmlFor="audience" error={state.errors.audience} required>
-            <select id="audience" name="audience" className="form-field" required defaultValue="">
+          <Field
+            label="Ich bin / Wir sind"
+            htmlFor="audience"
+            error={state.errors.audience}
+            required
+          >
+            <select
+              id="audience"
+              name="audience"
+              className="form-field"
+              required
+              defaultValue=""
+            >
               <option value="" disabled>
                 Bitte auswählen
               </option>
@@ -196,6 +248,52 @@ export function ContactForm() {
           </Field>
         </div>
 
+        <div className="mt-5">
+          <Field
+            label="Rechnungsanschrift"
+            htmlFor="billingAddress"
+            error={state.errors.billingAddress}
+            required
+          >
+            <textarea
+              id="billingAddress"
+              name="billingAddress"
+              rows={3}
+              className="form-field"
+              placeholder="Rechnungsempfänger, Straße, Hausnummer, PLZ, Ort und Land"
+              required
+              aria-invalid={Boolean(state.errors.billingAddress)}
+              aria-describedby={
+                state.errors.billingAddress ? "billingAddress-error" : undefined
+              }
+            />
+          </Field>
+        </div>
+        <label className="mt-5 flex gap-3 border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-600">
+          <input
+            id="auditAccepted"
+            name="auditAccepted"
+            type="checkbox"
+            required
+            className="mt-1 h-4 w-4 shrink-0 accent-neutral-950"
+            aria-invalid={Boolean(state.errors.auditAccepted)}
+            aria-describedby={
+              state.errors.auditAccepted ? "auditAccepted-error" : undefined
+            }
+          />
+          <span>
+            Ich beauftrage das First Audit für 599 € zzgl. MwSt. als
+            Unternehmer/in für mein geschäftliches Vorhaben. Ich habe den
+            Leistungsumfang und den Start nach Zahlungseingang zur Kenntnis
+            genommen.
+            {state.errors.auditAccepted ? (
+              <span id="auditAccepted-error" className="mt-2 block">
+                {state.errors.auditAccepted}
+              </span>
+            ) : null}
+          </span>
+        </label>
+
         <label className="mt-5 flex gap-3 border border-neutral-200 bg-neutral-50 p-4 text-sm leading-6 text-neutral-600">
           <input
             id="privacyAccepted"
@@ -205,13 +303,19 @@ export function ContactForm() {
             required
           />
           <span>
-            Ich stimme zu, dass Veytra meine Angaben zur Bearbeitung der Anfrage verarbeitet. Die{" "}
-            <a href="/datenschutz" className="font-medium text-neutral-950 underline">
+            Ich stimme zu, dass Veytra meine Angaben zur Bearbeitung der Anfrage
+            verarbeitet. Die{" "}
+            <a
+              href="/datenschutz"
+              className="font-medium text-neutral-950 underline"
+            >
               Datenschutzerklärung
             </a>{" "}
             habe ich gelesen.
             {state.errors.privacyAccepted ? (
-              <span className="mt-2 block text-neutral-950">{state.errors.privacyAccepted}</span>
+              <span className="mt-2 block text-neutral-950">
+                {state.errors.privacyAccepted}
+              </span>
             ) : null}
           </span>
         </label>
@@ -235,7 +339,9 @@ export function ContactForm() {
           disabled={isLoading}
           className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-5 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-950 disabled:cursor-not-allowed disabled:border-neutral-300 disabled:bg-neutral-300"
         >
-          {isLoading ? "Wird gesendet" : "Anfrage senden"}
+          {isLoading
+            ? "Wird gesendet"
+            : "First Audit kostenpflichtig beauftragen"}
         </button>
       </div>
     </form>
@@ -250,7 +356,13 @@ type FieldProps = {
   children: ReactNode;
 };
 
-function Field({ label, htmlFor, required = false, error, children }: FieldProps) {
+function Field({
+  label,
+  htmlFor,
+  required = false,
+  error,
+  children,
+}: FieldProps) {
   return (
     <div>
       <label
@@ -261,7 +373,9 @@ function Field({ label, htmlFor, required = false, error, children }: FieldProps
         {required ? <span className="text-neutral-500"> *</span> : null}
       </label>
       <div className="mt-2">{children}</div>
-      {error ? <p className="mt-2 text-sm leading-6 text-neutral-700">{error}</p> : null}
+      {error ? (
+        <p className="mt-2 text-sm leading-6 text-neutral-700">{error}</p>
+      ) : null}
     </div>
   );
 }

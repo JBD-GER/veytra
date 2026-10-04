@@ -11,9 +11,9 @@ type PortraitContactCTAProps = {
 };
 
 export function PortraitContactCTA({
-  message = "Ich unterstütze Sie dabei, Ihr Vorhaben einzuordnen und den nächsten Schritt zu klären.",
+  message = "Ihr Einstieg: First Audit für 599 € zzgl. MwSt. – mit Marktanalyse, schriftlicher Empfehlung und zwei Calls. Start nach Zahlungseingang.",
   href = "/kontakt#anfrage",
-  label = "Mit Christoph sprechen"
+  label = "First Audit beauftragen"
 }: PortraitContactCTAProps) {
   return (
     <aside className={styles.section} aria-label="Persönlicher Kontakt zu Christoph Pfad" data-portrait-contact-cta="">

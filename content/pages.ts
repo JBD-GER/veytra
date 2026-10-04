@@ -60,9 +60,9 @@ export const pageSeo = {
     path: "/case-studies"
   },
   contact: {
-    title: "Venture anfragen: MVP, Validierung & Company Build",
+    title: "First Audit: Marktchance prüfen für 599 € zzgl. MwSt.",
     description:
-      "Venture anfragen bei Veytra: für Unternehmen, Gründer, Startups und Investoren. Wir prüfen Fit, MVP-Scope, Validierung, Deal-Modell und nächste Build-Schritte.",
+      "First Audit für 599 € zzgl. MwSt.: Markt, Wettbewerb, Verkaufspotenzial und Umsetzbarkeit prüfen. Schriftliche Empfehlung und zwei Calls. Start nach Zahlungseingang.",
     path: "/kontakt"
   },
   imprint: {

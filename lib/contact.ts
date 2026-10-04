@@ -3,6 +3,10 @@ import type { ContactPayload } from "@/lib/validations";
 
 export function createContactEmailHtml(data: ContactPayload) {
   const rows = [
+    ["Leistung", "First Audit · 599 € zzgl. MwSt. · zwei Calls und schriftliche Analyse"],
+    ["Beauftragung bestätigt", data.auditAccepted ? "Ja" : "Nein"],
+    ["Rechnungsanschrift", data.billingAddress || "Nicht angegeben"],
+    ["Ablauf", "Rechnung innerhalb von 1–2 Werktagen übermitteln. Start und Terminvereinbarung erst nach vollständigem Zahlungseingang."],
     ["Name", data.name],
     ["E-Mail", data.email || "Nicht angegeben"],
     ["Telefon", data.phone || "Nicht angegeben"],
@@ -15,7 +19,7 @@ export function createContactEmailHtml(data: ContactPayload) {
 
   return `
     <div style="font-family:Arial,sans-serif;line-height:1.5;color:#171717;">
-      <h1 style="font-size:20px;margin:0 0 20px;">Neue Venture Studio Anfrage</h1>
+      <h1 style="font-size:20px;margin:0 0 20px;">Neue First-Audit-Beauftragung</h1>
       <table style="border-collapse:collapse;width:100%;">
         ${rows
           .map(
@@ -34,8 +38,12 @@ export function createContactEmailHtml(data: ContactPayload) {
 
 export function createContactEmailText(data: ContactPayload) {
   return [
-    "Neue Venture Studio Anfrage",
+    "Neue First-Audit-Beauftragung",
     "",
+    "Leistung: First Audit · 599 € zzgl. MwSt. · zwei Calls und schriftliche Analyse",
+    `Beauftragung bestätigt: ${data.auditAccepted ? "Ja" : "Nein"}`,
+    `Rechnungsanschrift: ${data.billingAddress || "Nicht angegeben"}`,
+    "Rechnung innerhalb von 1–2 Werktagen übermitteln. Start erst nach vollständigem Zahlungseingang.",
     `Name: ${data.name}`,
     `E-Mail: ${data.email || "Nicht angegeben"}`,
     `Telefon: ${data.phone || "Nicht angegeben"}`,

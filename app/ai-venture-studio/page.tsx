@@ -278,7 +278,7 @@ export default function AIVentureStudioPage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200"
               >
-                AI-Venture anfragen
+                AI-First Audit · 599 €
               </Link>
               <Link
                 href="/venture-studio"
@@ -465,7 +465,7 @@ export default function AIVentureStudioPage() {
       <CTASection
         title="Soll aus dem AI-Use-Case ein echtes Produkt werden?"
         description="Wir prüfen Problem, Datenlage, AI-Logik, MVP-Scope, Go-to-Market und Deal-Modell. Danach weißt du, ob sich ein AI-Venture-Build lohnt."
-        primaryLabel="AI-Venture anfragen"
+        primaryLabel="AI-First Audit · 599 €"
         secondaryLabel="Studio OS ansehen"
         secondaryHref="/studio-os"
       />

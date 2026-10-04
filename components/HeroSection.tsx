@@ -52,7 +52,7 @@ export function HeroSection() {
               href="/kontakt"
               className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              Venture anfragen
+              First Audit · 599 €
             </Link>
             <Link
               href="/prozess"

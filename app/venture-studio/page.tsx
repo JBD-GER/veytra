@@ -294,7 +294,7 @@ export default function VentureStudioPage() {
                 href="/kontakt"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-white bg-white px-5 text-sm font-medium text-neutral-950 transition hover:bg-neutral-200"
               >
-                Venture anfragen
+                First Audit · 599 €
               </Link>
               <Link
                 href="/prozess"
@@ -485,7 +485,7 @@ export default function VentureStudioPage() {
       <CTASection
         title="Soll aus der Idee ein Venture werden?"
         description="Wir prüfen Markt, Produktchance, MVP-Scope, Teamlücke, Kapitalbedarf und Deal-Modell. Danach ist klar, ob ein Venture-Studio-Prozess sinnvoll ist."
-        primaryLabel="Venture anfragen"
+        primaryLabel="First Audit · 599 €"
         secondaryLabel="Studio OS ansehen"
         secondaryHref="/studio-os"
       />

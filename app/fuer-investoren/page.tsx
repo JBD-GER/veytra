@@ -153,7 +153,7 @@ export default function InvestorsPage() {
                 href="#investor-form"
                 className="inline-flex min-h-12 items-center justify-center rounded-[6px] border border-neutral-950 bg-neutral-950 px-5 text-sm font-medium text-white transition hover:bg-neutral-800"
               >
-                Auf Investorenliste anfragen
+                First Audit · 599 € zzgl. MwSt.
               </a>
               <a
                 href="#dealflow"
@@ -309,10 +309,10 @@ export default function InvestorsPage() {
               Kurze Anfrage
             </p>
             <h3 className="mt-3 text-2xl font-semibold leading-tight text-neutral-950">
-              Auf die Investorenliste.
+              First Audit für dein Vorhaben.
             </h3>
             <p className="mt-3 text-sm leading-7 text-neutral-600">
-              Trag dich ein. Wir melden uns, wenn dein Investment-Fokus zu neuen, frühen Projekten passt.
+              Beauftrage die strukturierte Einschätzung deiner Produkt- oder Investmentidee für 599 € zzgl. MwSt. Inklusive schriftlicher Analyse und zwei Calls. Start nach Zahlungseingang.
             </p>
             <div className="mt-6">
               <InvestorForm idPrefix="investor-bottom" />

@@ -12,7 +12,7 @@ type CTASectionProps = {
 export function CTASection({
   title = "Soll aus der Idee ein echtes Startup werden?",
   description = "Wir prüfen Marktproblem, Produktchance, Teambedarf und Deal-Modell. Danach ist klar, ob wir gemeinsam bauen.",
-  primaryLabel = "Venture anfragen",
+  primaryLabel = "First Audit · 599 €",
   primaryHref = "/kontakt",
   secondaryLabel,
   secondaryHref
@@ -23,6 +23,7 @@ export function CTASection({
         <div data-reveal="slide" className="max-w-3xl">
           <h2 className="text-2xl font-semibold leading-tight md:text-4xl">{title}</h2>
           <p className="mt-5 text-base leading-8 text-neutral-300 md:text-lg">{description}</p>
+          <p className="mt-4 text-sm leading-7 text-neutral-300">Der erste Schritt ist das First Audit für 599 € zzgl. MwSt.: schriftliche Analyse und zwei Calls. Rechnung in 1–2 Werktagen, Start nach Zahlungseingang.</p>
         </div>
         <div data-reveal="fade" data-reveal-delay="120ms" className="flex flex-col gap-3 sm:flex-row lg:justify-end">
           <Link
