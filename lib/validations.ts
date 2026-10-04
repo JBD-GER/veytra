@@ -39,7 +39,6 @@ export function validateContactPayload(input: unknown): ValidationResult {
   const email = asString(body.email);
   const phone = asString(body.phone);
   const audience = asString(body.audience);
-  const isNewContactForm = Boolean(firstName || lastName || phone || audience || body.privacyAccepted);
   const payload: ContactPayload = {
     name: asString(body.name) || `${firstName} ${lastName}`.trim(),
     firstName,
@@ -71,7 +70,7 @@ export function validateContactPayload(input: unknown): ValidationResult {
     errors.form = "Die Anfrage konnte nicht verarbeitet werden.";
   }
 
-  if (isNewContactForm) {
+  {
     if ((payload.firstName || "").length < 2) {
       errors.firstName = "Bitte gib deinen Vornamen an.";
     }
@@ -94,18 +93,6 @@ export function validateContactPayload(input: unknown): ValidationResult {
 
     if (!payload.privacyAccepted) {
       errors.privacyAccepted = "Bitte bestätige die Datenschutzhinweise.";
-    }
-  } else {
-    if (payload.name.length < 2) {
-      errors.name = "Bitte gib deinen Namen an.";
-    }
-
-    if (!payload.email || !emailPattern.test(payload.email)) {
-      errors.email = "Bitte gib eine gültige E-Mail-Adresse an.";
-    }
-
-    if (payload.project.length < 10) {
-      errors.project = "Bitte beschreibe dein Vorhaben mit mindestens 10 Zeichen.";
     }
   }
 

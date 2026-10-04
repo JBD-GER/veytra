@@ -12,9 +12,9 @@ import { absoluteUrl } from "@/lib/utils";
 import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 
 export const metadata: Metadata = createMetadata({
-  title: "Investorenliste für Startups, Dealflow & Venture-Projekte",
+  title: "First Audit für Investoren: Marktchance & Produktpotenzial",
   description:
-    "Auf die Veytra Investorenliste: früher Zugang zu Startups, validierten Venture-Projekten und Dealflow für Business Angels, strategische Investoren und VC-Partner.",
+    "First Audit für Investoren: Marktchance, Verkaufspotenzial und Umsetzbarkeit für 599 € zzgl. MwSt. prüfen. Schriftliche Analyse und zwei Calls.",
   path: "/fuer-investoren"
 });
 
@@ -76,7 +76,7 @@ const realities = [
 const investorSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Investorenliste für Startups und Venture-Projekte",
+  name: "First Audit für Investoren",
   provider: {
     "@type": "Organization",
     name: "Veytra",
@@ -141,12 +141,10 @@ export default function InvestorsPage() {
               Für Investoren
             </p>
             <h1 className="mt-5 text-3xl font-semibold leading-tight text-neutral-950 md:mt-6 md:text-4xl">
-              Investorenliste für Startups, validierte Venture-Projekte und frühen Dealflow.
+              Marktchance prüfen, bevor du in eine Produktidee investierst.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 md:mt-7 md:text-lg md:leading-9">
-              Veytra baut neue Ventures mit Gründern, Startups und Unternehmen. Wir suchen
-              Business Angels, strategische Investoren und VC-Partner, die früh Zugang zu
-              passenden Projekten bekommen wollen, bevor sie öffentlich sichtbar werden.
+              Veytra baut neue Ventures mit Gründern, Startups und Unternehmen. Auch für neue Investorenvorhaben ist das First Audit für 599 € zzgl. MwSt. der Einstieg: Markt, Potenzial und Umsetzbarkeit deiner konkreten Idee, eine schriftliche Empfehlung und zwei Calls.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row md:mt-8">
               <a
@@ -283,7 +281,7 @@ export default function InvestorsPage() {
               Investor-Fit
             </p>
             <h2 className="mt-5 text-2xl font-semibold leading-tight text-white md:text-4xl">
-              Passt unser Dealflow zu deinem Investment-Fokus?
+              Wie tragfähig ist deine Produkt- oder Investmentidee?
             </h2>
             <p className="mt-5 text-base leading-8 text-white/[0.68] md:mt-6 md:text-lg">
               Wir suchen Investoren, die frühe Ventures nicht nur finanzieren, sondern mit

@@ -11,7 +11,7 @@ import { PortraitContactCTA } from "@/components/PortraitContactCTA";
 const pricingSeo = {
   title: "Venture Studio Preise: Equity, Build-Fee & Audit | Veytra",
   description:
-    "Venture Studio Preise bei Veytra: 599 € zzgl. MwSt. Venture-Audit, Equity-Modell, Hybrid mit 3.000-8.000 €+ Build-Fee und Corporate-Modell ab 8.000 €+.",
+    "Venture Studio Preise bei Veytra: 599 € zzgl. MwSt. First Audit, Equity-Modell, Hybrid mit 3.000-8.000 €+ Build-Fee und Corporate-Modell ab 8.000 €+.",
   path: "/preise"
 };
 
@@ -30,7 +30,7 @@ const pricingSchema = {
   },
   serviceType: [
     "Venture Studio",
-    "Venture-Audit",
+    "First Audit",
     "Equity-Modell",
     "Hybrid-Modell",
     "Corporate Venture Building"
@@ -41,7 +41,7 @@ const pricingSchema = {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Venture-Audit",
+        name: "First Audit",
         price: "599",
         priceCurrency: "EUR",
         description: "599 € zzgl. MwSt., zwei Calls und schriftliche Analyse. Rechnung in 1–2 Werktagen; Start nach Zahlungseingang."
@@ -69,7 +69,7 @@ const pricingSchema = {
 const heroLinks = [
   { label: "Build-Modelle", href: "#build-modelle" },
   { label: "Preislogik", href: "#preislogik" },
-  { label: "Venture-Audit", href: "#first-audit" },
+  { label: "First Audit", href: "#first-audit" },
   { label: "Stop-Logik", href: "#stop-logik" }
 ];
 
@@ -140,9 +140,9 @@ const pricingPrinciples = [
   {
     number: "06",
     eyebrow: "Pflicht vor dem Start",
-    title: "Jeder Build beginnt mit dem Venture-Audit.",
+    title: "Jeder Build beginnt mit dem First Audit.",
     body: "Erst wenn Idee, Markt, Produktlogik, Scope und Deal-Modell geprüft sind, entscheiden wir über Equity, Hybrid oder Corporate-Aufbau.",
-    cta: "Zum Venture-Audit"
+    cta: "Zum First Audit"
   }
 ];
 
